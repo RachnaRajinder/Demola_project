@@ -30,9 +30,9 @@ export function OGNavigation() {
                     if (rn === home) {
                         iconName = focused ? 'home' : 'home-outline'
                     } else if (rn === carDetails) {
-                        iconName = focused ? 'calendar-clear' : 'calendar-clear-outline'
+                        iconName = focused ? 'speedometer' : 'speedometer-outline'
                     } else if (rn === carSelection) {
-                        iconName = focused ? 'calendar' : 'calendar-outline'
+                        iconName = focused ? 'car-sport-outline' : 'car-sport-outline'
                     }
                     return <Ionicons name={iconName} size={size} color={color} />
                 },

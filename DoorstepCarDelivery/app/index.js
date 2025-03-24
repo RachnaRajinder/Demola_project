@@ -1,13 +1,16 @@
+import { StatusBar } from 'expo-status-bar';
 import { Text, View, StyleSheet } from "react-native";
 import { light, dark } from "../assets/colors/colors";
-import CarSelection from "@/navigation/screens/CarSelectionScreen";
-
+import { useState, useEffect } from 'react';
+// import CarSelectionScreen from "./screens/CarSelectionScreen";
+import Navigation from "../components/navigation";
+import HomeScreen from '@/screens/HomeScreen';
 
 export default function Index() {
   return (
-    <View style={styles.container}>
-      <Text>Edit app/index.tsx to edit this screen.</Text>
-    </View>
+    // Use for example <CarSelectionScreen /> and comment <Navigation/> to see only that screen
+        <Navigation />
+        // <HomeScreen/>
   );
 }
 
@@ -17,5 +20,12 @@ const styles = StyleSheet.create({
     backgroundColor: light.background,
     justifyContent: "center",
     alignItems: "center",
+  },
+  row: {
+    flexDirection: "row",
+    alignItems: "center",
+    alignSelf: "stretch",
+    justifyContent: "space-between",
+    margin: 8
   }
 })

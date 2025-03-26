@@ -10,18 +10,21 @@ import {
 } from "react-native";
 import { dark, light } from "../assets/colors/colors";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
-import CarDetailsScreen from "./CarDetailsScreen";
 import { useRoute, useNavigation } from "@react-navigation/native";
 
 
 const DATA = [
   {
     id: 1,
-    name: "Porsche Taycan",
+    name: "718 Spyder RS",
     fueltype: "Gasoline",
     image: require("../assets/images/porsche-model-1.png"),
     rating: 5,
     price: "$100",
+    topSpeed:'308',
+    enginePower:'368kW',
+    acceleration:'3,4s',
+    bodyType:'Cabriolet', 
   },
   {
     id: 2,
@@ -30,6 +33,10 @@ const DATA = [
     image: require("../assets/images/porsche-model-2.png"),
     rating: 4.5,
     price: "$120",
+    topSpeed:'296',
+    enginePower:'518kW',
+    acceleration:'3s',
+    bodyType:'GT', 
   },
   {
     id: 3,
@@ -38,6 +45,10 @@ const DATA = [
     image: require("../assets/images/porsche-model-3.png"),
     rating: 4.5,
     price: "$120",
+    topSpeed:'312',
+    enginePower:'398kW',
+    acceleration:'3s',
+    bodyType:'2 door coupe', 
   },
   {
     id: 4,
@@ -46,6 +57,10 @@ const DATA = [
     image: require("../assets/images/porsche-model-4.png"),
     rating: 4.5,
     price: "$120",
+    topSpeed:'313',
+    enginePower:'375kW',
+    acceleration:'3,9s',
+    bodyType:'GT', 
   },
   {
     id: 5,
@@ -54,18 +69,22 @@ const DATA = [
     image: require("../assets/images/porsche-model-5.png"),
     rating: 4.5,
     price: "$120",
+    topSpeed:'240',
+    enginePower:'353kW',
+    acceleration:'3,4',
+    bodyType:'coupe', 
   },
 ];
 const CarItem = ({ car }) => {
     const navigation = useNavigation();
 
-    const NavigateToCarDetails = (id, name, fueltype, image, rating, price) => {
-        navigation.navigate('CarDetails', {car:car, id:id, name:name, fueltype:fueltype, image:image, rating:rating, price:price})
+    const NavigateToCarDetails = (id, name, fueltype, image, rating, price, topSpeed, enginePower, acceleration, bodyType) => {
+        navigation.navigate('CarDetails', {car:car, id:id, name:name, fueltype:fueltype, image:image, rating:rating, price:price, topSpeed:topSpeed, enginePower:enginePower, acceleration:acceleration, bodyType:bodyType})
         console.log("toimiii", id)
     }
 
   return (
-    <TouchableOpacity onPress ={() => NavigateToCarDetails(car.id, car.name, car.fueltype, car.image, car.rating, car.price)}>
+    <TouchableOpacity onPress ={() => NavigateToCarDetails(car.id, car.name, car.fueltype, car.image, car.rating, car.price, car.topSpeed, car.enginePower, car.acceleration, car.bodyType)}>
     <View style={styles.carBox}>
       <Image
         style={styles.image}

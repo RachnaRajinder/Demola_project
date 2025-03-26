@@ -4,11 +4,10 @@ import { light, dark } from "../assets/colors/colors"
 import { SafeAreaView } from 'react-native-safe-area-context';
 import CarSelectionScreen from './CarSelectionScreen';
 import { useRoute } from '@react-navigation/native';
-import DATA from './CarSelectionScreen'
 
 function CarDetailsScreen() {
     const route = useRoute()
-    const { id, name, fueltype, image, rating, price } = route.params || { id: 1 }
+    const { id, name, fueltype, image, rating, price, topSpeed, enginePower, acceleration, bodyType } = route.params || { id: 1 }
     console.log("toimiiko", id, name)
 
     return (
@@ -17,6 +16,10 @@ function CarDetailsScreen() {
                 <View style={[styles.box, styles.elevation]}>
                     <Text style={styles.header}>{name}</Text>
                     <Image style={styles.image} source={(image)} />
+                    <View style={styles.box}>
+                    <Text style={styles.specs}>{topSpeed}km/h</Text>
+                    <Text style={styles.specsHeader}>Top speed</Text>
+                    </View>
                 </View>
         </SafeAreaView>
     );
@@ -54,13 +57,23 @@ const styles = StyleSheet.create({
         height: '200',
         marginTop: 10,
         paddingHorizontal: 10,
-        alignContent: 'center'
+        alignContent: 'center',
     },
     header: {
         marginTop: 20,
         fontWeight: 'bold',
         fontSize: 40,
         textAlign: 'center',
+    },
+    specs: {
+        fontWeight: 'bold',
+        fontSize: 24,
+        paddingLeft: 10,
+    },
+    specsHeader: {
+        color:'#9a9897',
+        paddingLeft: 10,
+
     },
 })
 

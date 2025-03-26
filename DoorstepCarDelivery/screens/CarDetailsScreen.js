@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, StatusBar, Text, Image } from 'react-native';
+import { StyleSheet, View, StatusBar, Text, Image, ScrollView } from 'react-native';
 import { light, dark } from "../assets/colors/colors"
 import { SafeAreaView } from 'react-native-safe-area-context';
 import CarSelectionScreen from './CarSelectionScreen';
@@ -11,17 +11,24 @@ function CarDetailsScreen() {
     console.log("toimiiko", id, name)
 
     return (
+    <ScrollView>
         <SafeAreaView style={styles.container}>
             <StatusBar backgroundColor={light.accent}></StatusBar>
                 <View style={[styles.box, styles.elevation]}>
                     <Text style={styles.header}>{name}</Text>
+                    <Text style={styles.EngineHeader}>{fueltype}</Text>
                     <Image style={styles.image} source={(image)} />
                     <View style={styles.box}>
-                    <Text style={styles.specs}>{topSpeed}km/h</Text>
+                    <Text style={styles.specs}>{topSpeed} km/h</Text>
                     <Text style={styles.specsHeader}>Top speed</Text>
+                    <Text style={styles.specs}>{enginePower} kw</Text>
+                    <Text style={styles.specsHeader}>Engine Power</Text>
+                    <Text style={styles.specs}>{acceleration} s</Text>
+                    <Text style={styles.specsHeader}>acceleration 0 - 100 km/h</Text>
                     </View>
                 </View>
         </SafeAreaView>
+    </ScrollView>
     );
 }
 
@@ -69,11 +76,22 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 24,
         paddingLeft: 10,
+        paddingTop: 20
     },
     specsHeader: {
         color:'#9a9897',
         paddingLeft: 10,
 
+    },
+    EngineHeader: {
+        backgroundColor:'#D8D6D5',
+        textAlign: 'center',
+        borderRadius: 10,
+        width: 'auto',
+        alignSelf: 'center',  
+        padding: 10,
+        margin: 10,  
+        fontWeight: 'bold',
     },
 })
 

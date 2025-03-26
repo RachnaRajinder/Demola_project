@@ -15,10 +15,15 @@ function CarDetailsScreen() {
             <StatusBar backgroundColor={light.accent}></StatusBar>
                 <View style={[styles.box, styles.elevation]}>
                     <Text style={styles.header}>{name}</Text>
+                    <Text style={styles.EngineHeader}>{fueltype}</Text>
                     <Image style={styles.image} source={(image)} />
                     <View style={styles.box}>
-                    <Text style={styles.specs}>{topSpeed}km/h</Text>
+                    <Text style={styles.specs}>{topSpeed} km/h</Text>
                     <Text style={styles.specsHeader}>Top speed</Text>
+                    <Text style={styles.specs}>{enginePower} kw</Text>
+                    <Text style={styles.specsHeader}>Engine Power</Text>
+                    <Text style={styles.specs}>{acceleration} s</Text>
+                    <Text style={styles.specsHeader}>acceleration 0 - 100 km/h</Text>
                     </View>
                 </View>
         </SafeAreaView>
@@ -53,7 +58,7 @@ const styles = StyleSheet.create({
         elevation: 7,
     },
     image: {
-        width: '100%',
+        width: '90%',
         height: '200',
         marginTop: 10,
         paddingHorizontal: 10,
@@ -69,11 +74,17 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 24,
         paddingLeft: 10,
+        paddingTop: 20
     },
     specsHeader: {
         color:'#9a9897',
         paddingLeft: 10,
 
+    },
+    EngineHeader: {
+        color:'#9a9897',
+        paddingLeft: 10,
+        textAlign: 'center',
     },
 })
 

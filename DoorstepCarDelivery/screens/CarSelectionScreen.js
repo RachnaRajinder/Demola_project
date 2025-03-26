@@ -10,6 +10,9 @@ import {
 } from "react-native";
 import { dark, light } from "../assets/colors/colors";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
+import CarDetailsScreen from "./CarDetailsScreen";
+import { useRoute, useNavigation } from "@react-navigation/native";
+
 
 const DATA = [
   {
@@ -46,7 +49,7 @@ const DATA = [
   },
   {
     id: 5,
-    name: "911 Darker",
+    name: "911 Dakar",
     fueltype: "Gasoline",
     image: require("../assets/images/porsche-model-5.png"),
     rating: 4.5,
@@ -54,7 +57,15 @@ const DATA = [
   },
 ];
 const CarItem = ({ car }) => {
+    const navigation = useNavigation();
+
+    const NavigateToCarDetails = (id, name, fueltype, image, rating, price) => {
+        navigation.navigate('CarDetails', {car:car, id:id, name:name, fueltype:fueltype, image:image, rating:rating, price:price})
+        console.log("toimiii", id)
+    }
+
   return (
+    <TouchableOpacity onPress ={() => NavigateToCarDetails(car.id, car.name, car.fueltype, car.image, car.rating, car.price)}>
     <View style={styles.carBox}>
       <Image
         style={styles.image}
@@ -74,6 +85,7 @@ const CarItem = ({ car }) => {
         <Text style={styles.buttonText}>Book Now</Text>
       </TouchableOpacity>
     </View>
+    </TouchableOpacity>
   );
 };
 

@@ -74,6 +74,18 @@ const DATA = [
     acceleration:'3,4',
     bodyType:'coupe', 
   },
+  {
+    id: 6,
+    name: "Taycan 4 Cross Turismo",
+    fueltype: "Electric",
+    image: require("../assets/images/taycan_4_cross_turismo.png"),
+    rating: 3.5,
+    price: "$100",
+    topSpeed:'220',
+    enginePower:'320',
+    acceleration:'4,7',
+    bodyType:'Cross Turismo', 
+  },
 ];
 const CarItem = ({ car }) => {
     const navigation = useNavigation();

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, StatusBar, Text, Image } from 'react-native';
+import { StyleSheet, View, StatusBar, Text, Image, ScrollView } from 'react-native';
 import { light, dark } from "../assets/colors/colors"
 import { SafeAreaView } from 'react-native-safe-area-context';
 import CarSelectionScreen from './CarSelectionScreen';
@@ -11,6 +11,7 @@ function CarDetailsScreen() {
     console.log("toimiiko", id, name)
 
     return (
+    <ScrollView>
         <SafeAreaView style={styles.container}>
             <StatusBar backgroundColor={light.accent}></StatusBar>
                 <View style={[styles.box, styles.elevation]}>
@@ -27,6 +28,7 @@ function CarDetailsScreen() {
                     </View>
                 </View>
         </SafeAreaView>
+    </ScrollView>
     );
 }
 
@@ -58,7 +60,7 @@ const styles = StyleSheet.create({
         elevation: 7,
     },
     image: {
-        width: '90%',
+        width: '100%',
         height: '200',
         marginTop: 10,
         paddingHorizontal: 10,
@@ -82,9 +84,14 @@ const styles = StyleSheet.create({
 
     },
     EngineHeader: {
-        color:'#9a9897',
-        paddingLeft: 10,
+        backgroundColor:'#D8D6D5',
         textAlign: 'center',
+        borderRadius: 10,
+        width: 'auto',
+        alignSelf: 'center',  
+        padding: 10,
+        margin: 10,  
+        fontWeight: 'bold',
     },
 })
 

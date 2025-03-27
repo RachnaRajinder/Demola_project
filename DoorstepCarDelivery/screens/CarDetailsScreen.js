@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, StatusBar, Text, Image, ScrollView } from 'react-native';
+import { StyleSheet, View, StatusBar, Text, Image, ScrollView, Button, TouchableOpacity } from 'react-native';
 import { light, dark } from "../assets/colors/colors"
 import { SafeAreaView } from 'react-native-safe-area-context';
 import CarSelectionScreen from './CarSelectionScreen';
@@ -18,6 +18,7 @@ function CarDetailsScreen() {
                     <Text style={styles.header}>{name}</Text>
                     <Text style={styles.EngineHeader}>{fueltype}</Text>
                     <Image style={styles.image} source={(image)} />
+                    <Text style={styles.ButtonText}> {bodyType} </Text>
                     <View style={styles.box}>
                     <Text style={styles.specs}>{topSpeed} km/h</Text>
                     <Text style={styles.specsHeader}>Top speed</Text>
@@ -25,6 +26,9 @@ function CarDetailsScreen() {
                     <Text style={styles.specsHeader}>Engine Power</Text>
                     <Text style={styles.specs}>{acceleration} s</Text>
                     <Text style={styles.specsHeader}>acceleration 0 - 100 km/h</Text>
+                    <TouchableOpacity style={styles.BookButton} onPress={() => alert(`Booking ${name}`)}>
+                        <Text style={styles.ButtonText}> Book Now </Text>
+                    </TouchableOpacity>
                     </View>
                 </View>
         </SafeAreaView>
@@ -93,6 +97,23 @@ const styles = StyleSheet.create({
         margin: 10,  
         fontWeight: 'bold',
     },
+    BookButton: {
+        alignSelf: 'center',
+        borderRadius: 10,
+        backgroundColor: '#FFA10A',
+        width: '64%',
+        height: '16%',
+        margin: '14',
+        fontWeight: 'bold',
+
+    },
+    ButtonText: {
+        textAlign: 'center',
+        padding: 8,
+        fontWeight: 'bold',
+        fontSize: 18,
+    },
+    
 })
 
 export default CarDetailsScreen;

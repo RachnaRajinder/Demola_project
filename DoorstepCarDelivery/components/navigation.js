@@ -11,7 +11,7 @@ import { light, dark } from "../assets/colors/colors"
 const home = 'Home';
 const carDetails = 'CarDetails';
 const carSelection = 'CarSelection';
-const subscriptions = 'Subscriptions'
+const subscriptions = 'Subscriptions';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -67,7 +67,6 @@ export default function Navigation() {
                 component={OGNavigation}
                 options={{ headerShown: false }}
             />
-
         </Stack.Navigator>
     )
 }

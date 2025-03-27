@@ -18,7 +18,8 @@ function CarDetailsScreen() {
                     <Text style={styles.header}>{name}</Text>
                     <Text style={styles.EngineHeader}>{fueltype}</Text>
                     <Image style={styles.image} source={(image)} />
-                    <Text style={styles.ButtonText}> {bodyType} </Text>
+                    <Text style={styles.bodyType}> {bodyType} </Text>
+                    <Text style={styles.BodyHeader}> Body Type </Text>
                     <View style={styles.box}>
                     <Text style={styles.specs}>{topSpeed} km/h</Text>
                     <Text style={styles.specsHeader}>Top speed</Text>
@@ -87,6 +88,11 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
 
     },
+    BodyHeader: {
+        color:'#9a9897',
+        paddingLeft: 10,
+        textAlign: 'center',
+    },
     EngineHeader: {
         backgroundColor:'#D8D6D5',
         textAlign: 'center',
@@ -103,8 +109,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFA10A',
         width: '64%',
         height: '16%',
-        margin: '14',
+        marginTop: 14,
+        marginBottom: 14,
         fontWeight: 'bold',
+        marginLeft: '10%'
 
     },
     ButtonText: {
@@ -113,7 +121,12 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 18,
     },
-    
+    bodyType: {
+        textAlign: 'center',
+        fontSize: 18,
+        fontWeight: 'bold',
+
+    }
 })
 
 export default CarDetailsScreen;

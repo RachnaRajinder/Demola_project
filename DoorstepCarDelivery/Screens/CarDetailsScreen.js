@@ -1,24 +1,45 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, StatusBar, Text, Image } from 'react-native';
+import { StyleSheet, View, StatusBar, Text, Image, ScrollView, Button, TouchableOpacity, Alert } from 'react-native';
 import { light, dark } from "../assets/colors/colors"
 import { SafeAreaView } from 'react-native-safe-area-context';
 import CarSelectionScreen from './CarSelectionScreen';
 import { useRoute } from '@react-navigation/native';
-import DATA from './CarSelectionScreen'
+import GradientButton from '@/components/GradientButton';
 
 function CarDetailsScreen() {
     const route = useRoute()
-    const { id, name, fueltype, image, rating, price } = route.params || { id: 1 }
+    const { id, name, fueltype, image, rating, price, topSpeed, enginePower, acceleration, bodyType } = route.params || { id: 1 }
     console.log("toimiiko", id, name)
 
+    const BookNow = () => {
+        Alert.alert('booking page')
+    }
+
     return (
+    <ScrollView>
         <SafeAreaView style={styles.container}>
             <StatusBar backgroundColor={light.accent}></StatusBar>
                 <View style={[styles.box, styles.elevation]}>
                     <Text style={styles.header}>{name}</Text>
+                    <Text style={styles.EngineHeader}>{fueltype}</Text>
                     <Image style={styles.image} source={(image)} />
+                    <Text style={styles.bodyType}> {bodyType} </Text>
+                    <Text style={styles.BodyHeader}> Body Type </Text>
+                    <View style={styles.box}>
+                    <Text style={styles.specs}>{topSpeed} km/h</Text>
+                    <Text style={styles.specsHeader}>Top speed</Text>
+                    <Text style={styles.specs}>{enginePower} kw</Text>
+                    <Text style={styles.specsHeader}>Engine Power</Text>
+                    <Text style={styles.specs}>{acceleration} s</Text>
+                    <Text style={styles.specsHeader}>acceleration 0 - 100 km/h</Text>
+                    <TouchableOpacity style={styles.BookButton} onPress={() => alert(`Booking ${name}`)}>
+                        <Text style={styles.ButtonText}> Book Now </Text>
+                    </TouchableOpacity>
+                    {/* Tried to add gradient button didn't work out yet <GradientButton text = {'Book Now'} navigate = {BookNow} style={styles.BookButton}/> */}
+                    </View>
                 </View>
         </SafeAreaView>
+    </ScrollView>
     );
 }
 
@@ -40,7 +61,7 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 10,
         borderBottomLeftRadius: 10,
         borderBottomRightRadius: 10,
-
+        
     },
     elevation: {
         shadowColor: 'black',
@@ -54,7 +75,7 @@ const styles = StyleSheet.create({
         height: '200',
         marginTop: 10,
         paddingHorizontal: 10,
-        alignContent: 'center'
+        alignContent: 'center',
     },
     header: {
         marginTop: 20,
@@ -62,6 +83,55 @@ const styles = StyleSheet.create({
         fontSize: 40,
         textAlign: 'center',
     },
+    specs: {
+        fontWeight: 'bold',
+        fontSize: 24,
+        paddingLeft: 10,
+        paddingTop: 20,
+    },
+    specsHeader: {
+        color:'#9a9897',
+        paddingLeft: 10,
+        
+    },
+    BodyHeader: {
+        color:'#9a9897',
+        paddingLeft: 10,
+        textAlign: 'center',
+    },
+    EngineHeader: {
+        backgroundColor:'#D8D6D5',
+        textAlign: 'center',
+        borderRadius: 10,
+        width: 'auto',
+        alignSelf: 'center',  
+        padding: 10,
+        margin: 10,  
+        fontWeight: 'bold',
+    },
+    BookButton: {
+        alignSelf: 'center',
+        borderRadius: 10,
+        backgroundColor: light.accent,
+        width: '64%',
+        height: '16%',
+        marginTop: 14,
+        marginBottom: 14,
+        fontWeight: 'bold',
+        marginLeft: '10%',
+    },
+    ButtonText: {
+        textAlign: 'center',
+        padding: 8,
+        fontWeight: 'bold',
+        fontSize: 18,
+    },
+    bodyType: {
+        textAlign: 'center',
+        fontSize: 18,
+        fontWeight: 'bold',
+        
+    }
 })
 
 export default CarDetailsScreen;

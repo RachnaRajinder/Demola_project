@@ -49,13 +49,13 @@ function HomeScreen() {
                     </View>
                 </View>
                 <View style={styles.interactions}>
-                    <GradientButton text={'Car Details'} navigate={navigateToCarDetails} width={195} height={145} />
-                    <GradientButton text={'Car Control'} navigate={navigateToCarControl} width={195} height={145} />
+                    <GradientButton text={'Car Details'} navigate={navigateToCarDetails} style={styles.button} />
+                    <GradientButton text={'Car Control'} navigate={navigateToCarControl} style={styles.button} />
                 </View>
                 <View style={styles.interactions}>
 
-                    <GradientButton text={'User Settings'} navigate={navigateToUserSettings} width={195} height={145} />
-                    <GradientButton text={'Manage Membership'} navigate={navigateToMembership} width={195} height={145} />
+                    <GradientButton text={'User Settings'} navigate={navigateToUserSettings} style={styles.button} />
+                    <GradientButton text={'Manage Membership'} navigate={navigateToMembership} style={styles.button} />
 
                 </View>
             </View>
@@ -68,6 +68,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: light.background,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     box: {
         flex: 1,
@@ -136,6 +138,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         width: '50%',
     },
+    button: {
+        padding: 20,
+        width:195,
+        height:145,
+    }
 
 })
 

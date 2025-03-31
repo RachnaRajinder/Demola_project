@@ -5,6 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import CarSelectionScreen from './CarSelectionScreen';
 import { useRoute } from '@react-navigation/native';
 import GradientButton from '@/components/GradientButton';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 function CarDetailsScreen() {
     const route = useRoute()
@@ -33,38 +34,45 @@ function CarDetailsScreen() {
                     <View style={styles.infoBox}>
                     
                     <View style={styles.box}>
+                    <Ionicons name={'speedometer-outline'} size={42} color={light.accent} style={styles.icon}/>
                     <Text style={styles.specs}>{topSpeed} km/h</Text>
                     <Text style={styles.specsHeader}>Top speed</Text>
                     </View>
 
                     <View style={styles.box}>
+                    <Ionicons name={'speedometer-outline'} size={42} color={light.accent} style={styles.icon}/>
                     <Text style={styles.specs}>{enginePower} kw</Text>
                     <Text style={styles.specsHeader}>Engine Power</Text>
                     </View>
 
                     <View style={styles.box}>
+                    <Ionicons name={'speedometer-outline'} size={42} color={light.accent} style={styles.icon}/>
                     <Text style={styles.specs}>{acceleration} s</Text>
                     <Text style={styles.specsHeader}>Acceleration 0 - 100 km/h</Text>
                     </View>
 
                     <View style={styles.box}>
+                    <Ionicons name={'speedometer-outline'} size={42} color={light.accent} style={styles.icon}/>
                     <Text style={styles.specs}>{numOfCylinders}</Text>
                     <Text style={styles.specsHeader}>Number of cylinders</Text>
                     </View>
 
                     <View style={styles.box}>
+                    <Ionicons name={'speedometer-outline'} size={42} color={light.accent} style={styles.icon}/>
                     <Text style={styles.specs}>{trans}</Text>
                     <Text style={styles.specsHeader}>Transmission</Text>
                     </View>
 
                     <View style={styles.box}>
+                    <Ionicons name={'speedometer-outline'} size={42} color={light.accent} style={styles.icon}/>
                     <Text style={styles.specs}>{seats}</Text>
                     <Text style={styles.specsHeader}>Seats</Text>
                     </View>
                     
                     </View>
 
-                    
+                    <GradientButton text={'Book now'} style={styles.BookButton} onPress={() => alert(`Booking ${name}`)}/>
+
                     <TouchableOpacity style={styles.BookButton} onPress={() => alert(`Booking ${name}`)}>
                         <Text style={styles.ButtonText}> Book Now </Text>
                     </TouchableOpacity>
@@ -77,19 +85,19 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: light.background,
-        alignContent: 'center', 
     },
     box: {
-        width: '150',
+        width: 150,
         height: 134,
-        margin: 10,
+        margin: 12,
         backgroundColor: light.box,
         borderRadius: 10,
     },
     infoBox: {
-        borderColor: '#FFA10A',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        borderColor: light.accent,
         borderTopWidth: 2,
-        alignContent: 'center',
     },
     elevation: {
         shadowColor: 'black',
@@ -115,7 +123,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 24,
         paddingLeft: 10,
-        paddingTop: 20
+        paddingTop: 10
     },
     specsHeader: {
         color:'#9a9897',
@@ -139,12 +147,14 @@ const styles = StyleSheet.create({
     BookButton: {
         alignSelf: 'center',
         borderRadius: 10,
-        backgroundColor: '#FFA10A',
+        backgroundColor: light.accent,
         width: '64%',
         marginTop: 14,
         marginBottom: 14,
         fontWeight: 'bold',
-
+        textAlign: 'center',
+        padding: 8,
+        fontWeight: 'bold',
     },
     ButtonText: {
         textAlign: 'center',
@@ -163,6 +173,11 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 24,
         marginLeft: 18,
+    },
+    icon: {
+        paddingLeft: 10,
+        paddingTop: 10,
+
     }
 })
 

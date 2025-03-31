@@ -10,8 +10,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { light, dark } from "../assets/colors/colors"
 
 const home = 'Home';
-const carDetails = 'CarDetails';
-const carSelection = 'CarSelection';
+const carDetails = 'Car details';
+const carSelection = 'Car selection';
+const subscriptions = 'Subscriptions'
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -29,7 +30,9 @@ export function OGNavigation() {
                     if (rn === home) {
                         iconName = focused ? 'home' : 'home-outline'
                     } else if (rn === carSelection) {
-                        iconName = focused ? 'car-sport-outline' : 'car-sport-outline'
+                        iconName = focused ? 'car-sport' : 'car-sport-outline'
+                    } else if (rn === subscriptions) {
+                        iconName = focused ? 'cart' : 'cart-outline'
                     }
                     return <Ionicons name={iconName} size={size} color={color} />
                 },
@@ -37,11 +40,12 @@ export function OGNavigation() {
                 tabBarInactiveTintColor: '#545454',
                 labelStyle: { paddingBottom: 4, fontSize: 10 },
                 tabBarStyle: { backgroundColor: light.box },
-                headerStyle: { backgroundColor: light.accent },
+                headerStyle: { backgroundColor: light.box },
                 headerTitleAlign: 'center',
             })}
         >
             <Tab.Screen name={home} component={HomeScreen} />
+            <Tab.Screen name={subscriptions} component={SubscriptionsScreen} />
             <Tab.Screen name={carSelection} component={CarSelectionScreen} />
         </Tab.Navigator>
     )
@@ -64,7 +68,7 @@ export default function Navigation() {
                 component={OGNavigation}
                 options={{ headerShown: false }}
             />            
-            <Stack.Screen name={carDetails} component={CarDetailsScreen} 
+            <Stack.Screen name={carDetails} component={CarDetailsScreen}
             />
 
         </Stack.Navigator>

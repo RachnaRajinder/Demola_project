@@ -12,7 +12,7 @@ function HomeScreen() {
     const navigation = useNavigation();
 
     const navigateToCarDetails = () => {
-        navigation.navigate('CarDetails')
+        navigation.navigate('Car details')
     }
     const navigateToCarControl = () => {
         // navigation.navigate('CarControl')

@@ -118,7 +118,7 @@ const CarItem = ({ car }) => {
       id, name, fueltype, image, rating, price, 
       topSpeed, enginePower, acceleration, bodyType, 
       numOfCylinders, trans, seats, fuelConsumption) => {
-        navigation.navigate('CarDetails', {
+        navigation.navigate('Car details', {
           car:car, id:id, name:name, fueltype:fueltype, image:image, 
           rating:rating, price:price, topSpeed:topSpeed, enginePower:enginePower, 
           acceleration:acceleration, bodyType:bodyType, numOfCylinders:numOfCylinders, 

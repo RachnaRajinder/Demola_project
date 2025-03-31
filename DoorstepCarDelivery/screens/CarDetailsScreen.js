@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, StatusBar, Text, Image, ScrollView, Button, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, StatusBar, Text, Image, ScrollView, Button, TouchableOpacity, Alert } from 'react-native';
 import { light, dark } from "../assets/colors/colors"
 import { SafeAreaView } from 'react-native-safe-area-context';
 import CarSelectionScreen from './CarSelectionScreen';
 import { useRoute } from '@react-navigation/native';
+import GradientButton from '@/components/GradientButton';
 
 function CarDetailsScreen() {
     const route = useRoute()
@@ -11,6 +12,10 @@ function CarDetailsScreen() {
             enginePower, acceleration, bodyType, numOfCylinders, 
             trans, seats, fuelConsumption } = route.params || { id: 1 }
     console.log("toimiiko", id, name)
+
+    const BookNow = () => {
+        Alert.alert('booking page')
+    }
 
     return (
     <ScrollView>
@@ -122,7 +127,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     EngineHeader: {
-        backgroundColor:'#F3F3F4',
+        backgroundColor:'#D8D6D5',
         textAlign: 'center',
         borderRadius: 10,
         width: 'auto',
@@ -139,6 +144,7 @@ const styles = StyleSheet.create({
         marginTop: 14,
         marginBottom: 14,
         fontWeight: 'bold',
+
     },
     ButtonText: {
         textAlign: 'center',

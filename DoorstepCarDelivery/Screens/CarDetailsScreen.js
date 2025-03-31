@@ -8,7 +8,9 @@ import GradientButton from '@/components/GradientButton';
 
 function CarDetailsScreen() {
     const route = useRoute()
-    const { id, name, fueltype, image, rating, price, topSpeed, enginePower, acceleration, bodyType } = route.params || { id: 1 }
+    const { id, name, fueltype, image, rating, price, topSpeed, 
+            enginePower, acceleration, bodyType, numOfCylinders, 
+            trans, seats, fuelConsumption } = route.params || { id: 1 }
     console.log("toimiiko", id, name)
 
     const BookNow = () => {
@@ -18,26 +20,54 @@ function CarDetailsScreen() {
     return (
     <ScrollView>
         <SafeAreaView style={styles.container}>
+            
             <StatusBar backgroundColor={light.accent}></StatusBar>
-                <View style={[styles.box, styles.elevation]}>
                     <Text style={styles.header}>{name}</Text>
                     <Text style={styles.EngineHeader}>{fueltype}</Text>
                     <Image style={styles.image} source={(image)} />
                     <Text style={styles.bodyType}> {bodyType} </Text>
                     <Text style={styles.BodyHeader}> Body Type </Text>
+
+                    <Text style={styles.smallHeader}> Features </Text>
+
+                    <View style={styles.infoBox}>
+                    
                     <View style={styles.box}>
                     <Text style={styles.specs}>{topSpeed} km/h</Text>
                     <Text style={styles.specsHeader}>Top speed</Text>
+                    </View>
+
+                    <View style={styles.box}>
                     <Text style={styles.specs}>{enginePower} kw</Text>
                     <Text style={styles.specsHeader}>Engine Power</Text>
+                    </View>
+
+                    <View style={styles.box}>
                     <Text style={styles.specs}>{acceleration} s</Text>
-                    <Text style={styles.specsHeader}>acceleration 0 - 100 km/h</Text>
+                    <Text style={styles.specsHeader}>Acceleration 0 - 100 km/h</Text>
+                    </View>
+
+                    <View style={styles.box}>
+                    <Text style={styles.specs}>{numOfCylinders}</Text>
+                    <Text style={styles.specsHeader}>Number of cylinders</Text>
+                    </View>
+
+                    <View style={styles.box}>
+                    <Text style={styles.specs}>{trans}</Text>
+                    <Text style={styles.specsHeader}>Transmission</Text>
+                    </View>
+
+                    <View style={styles.box}>
+                    <Text style={styles.specs}>{seats}</Text>
+                    <Text style={styles.specsHeader}>Seats</Text>
+                    </View>
+                    
+                    </View>
+
+                    
                     <TouchableOpacity style={styles.BookButton} onPress={() => alert(`Booking ${name}`)}>
                         <Text style={styles.ButtonText}> Book Now </Text>
                     </TouchableOpacity>
-                    {/* Tried to add gradient button didn't work out yet <GradientButton text = {'Book Now'} navigate = {BookNow} style={styles.BookButton}/> */}
-                    </View>
-                </View>
         </SafeAreaView>
     </ScrollView>
     );
@@ -47,21 +77,19 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: light.background,
-        justifyContent: 'center',
-        alignItems:'center',
+        alignContent: 'center', 
     },
     box: {
-        flex: 1,
-        flexDirection: 'column',
-        width: '90%',
-        marginTop: 20,
-        marginBottom: 20,
+        width: '150',
+        height: 134,
+        margin: 10,
         backgroundColor: light.box,
-        borderTopLeftRadius: 10,
-        borderTopRightRadius: 10,
-        borderBottomLeftRadius: 10,
-        borderBottomRightRadius: 10,
-        
+        borderRadius: 10,
+    },
+    infoBox: {
+        borderColor: '#FFA10A',
+        borderTopWidth: 2,
+        alignContent: 'center',
     },
     elevation: {
         shadowColor: 'black',
@@ -87,16 +115,15 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 24,
         paddingLeft: 10,
-        paddingTop: 20,
+        paddingTop: 20
     },
     specsHeader: {
         color:'#9a9897',
         paddingLeft: 10,
-        
+        marginBottom: 20,
     },
     BodyHeader: {
         color:'#9a9897',
-        paddingLeft: 10,
         textAlign: 'center',
     },
     EngineHeader: {
@@ -112,13 +139,12 @@ const styles = StyleSheet.create({
     BookButton: {
         alignSelf: 'center',
         borderRadius: 10,
-        backgroundColor: light.accent,
+        backgroundColor: '#FFA10A',
         width: '64%',
-        height: '16%',
         marginTop: 14,
         marginBottom: 14,
         fontWeight: 'bold',
-        marginLeft: '10%',
+
     },
     ButtonText: {
         textAlign: 'center',
@@ -130,7 +156,13 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 18,
         fontWeight: 'bold',
-        
+    },
+    smallHeader:
+    {
+        textAlign: 'left',
+        fontWeight: 'bold',
+        fontSize: 24,
+        marginLeft: 18,
     }
 })
 

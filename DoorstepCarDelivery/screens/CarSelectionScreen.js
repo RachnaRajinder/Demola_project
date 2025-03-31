@@ -24,7 +24,11 @@ const DATA = [
     topSpeed:'308',
     enginePower:'368',
     acceleration:'3,4',
-    bodyType:'Cabriolet', 
+    bodyType:'Roadster', 
+    numOfCylinders: 6,
+    trans: 'automatic',
+    seats: 2,
+    fuelConsumption: '12.7 l/100 km',
   },
   {
     id: 2,
@@ -37,6 +41,10 @@ const DATA = [
     enginePower:'518',
     acceleration:'3',
     bodyType:'GT', 
+    numOfCylinders: 6,
+    trans: 'automatic',
+    seats: 2,
+    fuelConsumption: '13.8 l/100 km',
   },
   {
     id: 3,
@@ -49,6 +57,10 @@ const DATA = [
     enginePower:'398',
     acceleration:'3',
     bodyType:'2 door coupe', 
+    numOfCylinders: 6,
+    trans: 'automatic',
+    seats: 2,
+    fuelConsumption: '12.7 l/100 km',
   },
   {
     id: 4,
@@ -60,7 +72,11 @@ const DATA = [
     topSpeed:'313',
     enginePower:'375',
     acceleration:'3,9',
-    bodyType:'GT', 
+    bodyType:'GT',
+    numOfCylinders: 6,
+    trans: 'automatic',
+    seats: 2,
+    fuelConsumption: '12.7 l/100 km', 
   },
   {
     id: 5,
@@ -73,6 +89,10 @@ const DATA = [
     enginePower:'353',
     acceleration:'3,4',
     bodyType:'coupe', 
+    numOfCylinders: 6,
+    trans: 'automatic',
+    seats: 2,
+    fuelConsumption: '12.7 l/100 km',
   },
   {
     id: 6,
@@ -85,18 +105,29 @@ const DATA = [
     enginePower:'320',
     acceleration:'4,7',
     bodyType:'Cross Turismo', 
+    numOfCylinders: 0,
+    trans: 'automatic',
+    seats: 5,
+    fuelConsumption: '12.7 l/100 km',
   },
 ];
 const CarItem = ({ car }) => {
     const navigation = useNavigation();
 
-    const NavigateToCarDetails = (id, name, fueltype, image, rating, price, topSpeed, enginePower, acceleration, bodyType) => {
-        navigation.navigate('CarDetails', {car:car, id:id, name:name, fueltype:fueltype, image:image, rating:rating, price:price, topSpeed:topSpeed, enginePower:enginePower, acceleration:acceleration, bodyType:bodyType})
+    const NavigateToCarDetails = (
+      id, name, fueltype, image, rating, price, 
+      topSpeed, enginePower, acceleration, bodyType, 
+      numOfCylinders, trans, seats, fuelConsumption) => {
+        navigation.navigate('CarDetails', {
+          car:car, id:id, name:name, fueltype:fueltype, image:image, 
+          rating:rating, price:price, topSpeed:topSpeed, enginePower:enginePower, 
+          acceleration:acceleration, bodyType:bodyType, numOfCylinders:numOfCylinders, 
+          trans:trans, seats:seats, fuelConsumption:fuelConsumption})
         console.log("toimiii", id)
     }
 
   return (
-    <TouchableOpacity onPress ={() => NavigateToCarDetails(car.id, car.name, car.fueltype, car.image, car.rating, car.price, car.topSpeed, car.enginePower, car.acceleration, car.bodyType)}>
+    <TouchableOpacity onPress ={() => NavigateToCarDetails(car.id, car.name, car.fueltype, car.image, car.rating, car.price, car.topSpeed, car.enginePower, car.acceleration, car.bodyType, car.numOfCylinders, car.trans, car.seats, car.fuelConsumption)}>
     <View style={styles.carBox}>
       <Image
         style={styles.image}

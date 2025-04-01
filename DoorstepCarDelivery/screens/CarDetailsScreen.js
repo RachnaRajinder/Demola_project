@@ -33,47 +33,51 @@ function CarDetailsScreen() {
 
                     <View style={styles.infoBox}>
                     
-                    <View style={styles.box}>
-                    <Ionicons name={'speedometer-outline'} size={42} color={light.accent} style={styles.icon}/>
-                    <Text style={styles.specs}>{topSpeed} km/h</Text>
-                    <Text style={styles.specsHeader}>Top speed</Text>
-                    </View>
+                        <View style={styles.box}>
+                        <Ionicons name={'speedometer-outline'} size={42} color={light.accent} style={styles.icon}/>
+                        <Text style={styles.specs}>{topSpeed} km/h</Text>
+                        <Text style={styles.specsHeader}>Top speed</Text>
+                        </View>
 
-                    <View style={styles.box}>
-                    <Ionicons name={'stats-chart-outline'} size={42} color={light.accent} style={styles.icon}/>
-                    <Text style={styles.specs}>{enginePower} kw</Text>
-                    <Text style={styles.specsHeader}>Engine Power</Text>
-                    </View>
+                        <View style={styles.box}>
+                        <Ionicons name={'stats-chart-outline'} size={42} color={light.accent} style={styles.icon}/>
+                        <Text style={styles.specs}>{enginePower} kw</Text>
+                        <Text style={styles.specsHeader}>Engine Power</Text>
+                        </View>
 
-                    <View style={styles.box}>
-                    <Ionicons name={'cellular-outline'} size={42} color={light.accent} style={styles.icon}/>
-                    <Text style={styles.specs}>{acceleration} s</Text>
-                    <Text style={styles.specsHeader}>Acceleration 0 - 100 km/h</Text>
-                    </View>
+                        <View style={styles.box}>
+                        <Ionicons name={'cellular-outline'} size={42} color={light.accent} style={styles.icon}/>
+                        <Text style={styles.specs}>{acceleration} s</Text>
+                        <Text style={styles.specsHeader}>Acceleration 0 - 100 km/h</Text>
+                        </View>
 
-                    <View style={styles.box}>
-                    <Ionicons name={'cog-outline'} size={42} color={light.accent} style={styles.icon}/>
-                    <Text style={styles.specs}>{numOfCylinders}</Text>
-                    <Text style={styles.specsHeader}>Number of cylinders</Text>
-                    </View>
+                        <View style={styles.box}>
+                        <Ionicons name={'cog-outline'} size={42} color={light.accent} style={styles.icon}/>
+                        <Text style={styles.specs}>{numOfCylinders}</Text>
+                        <Text style={styles.specsHeader}>Number of cylinders</Text>
+                        </View>
 
-                    <View style={styles.box}>
-                    <Ionicons name={'git-branch-outline'} size={42} color={light.accent} style={styles.icon}/>
-                    <Text style={styles.specs}>{trans}</Text>
-                    <Text style={styles.specsHeader}>Transmission</Text>
-                    </View>
+                        <View style={styles.box}>
+                        <Ionicons name={'git-branch-outline'} size={42} color={light.accent} style={styles.icon}/>
+                        <Text style={styles.specs}>{trans}</Text>
+                        <Text style={styles.specsHeader}>Transmission</Text>
+                        </View>
 
-                    <View style={styles.box}>
-                    <Ionicons name={'man-outline'} size={42} color={light.accent} style={styles.icon}/>
-                    <Text style={styles.specs}>{seats}</Text>
-                    <Text style={styles.specsHeader}>Seats</Text>
-                    </View>
+                        <View style={styles.box}>
+                        <Ionicons name={'man-outline'} size={42} color={light.accent} style={styles.icon}/>
+                        <Text style={styles.specs}>{seats}</Text>
+                        <Text style={styles.specsHeader}>Seats</Text>
+                        </View>
                     
                     </View>
-
-                    <GradientButton text={'Book now'} style={styles.BookButton} onPress={() => alert(`Booking ${name}`)}/>
-                    <Text style={styles.priceHeader}>Total price </Text>
-                    <Text style={styles.price}>{price}</Text>
+                    
+                    <View style={styles.booking}>
+                            <View>
+                            <Text style={styles.priceHeader}>Total price: </Text>
+                            <Text style={styles.price}>{price}</Text>
+                            </View>
+                        <GradientButton text={'Book now'} style={styles.BookButton} onPress={BookNow}/>
+                    </View>
         </SafeAreaView>
     </ScrollView>
     );
@@ -92,6 +96,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
     },
     infoBox: {
+        flex: 1,
         flexDirection: 'row',
         flexWrap: 'wrap',
         borderColor: light.accent,
@@ -145,12 +150,13 @@ const styles = StyleSheet.create({
     BookButton: {
         borderRadius: 10,
         backgroundColor: light.accent,
-        width: '40%',
-        marginTop: 14,
+        width: 'auto',
         marginBottom: 14,
+        marginRight: 14, 
         fontWeight: 'bold',
         textAlign: 'center',
-        padding: 8,
+        paddingVertical: 12,
+        paddingHorizontal: 32,
         fontWeight: 'bold',
     },
     ButtonText: {
@@ -186,6 +192,16 @@ const styles = StyleSheet.create({
         fontSize: 24,
         paddingLeft: 10,
         paddingBottom: 10,
+    },
+    booking: {
+        flex: 1,
+        flexWrap: 'wrap',
+        flexDirection: 'row-reverse',
+        display: "flex",
+        justifyContent: "space-between",
+        minWidth: '100%',
+        flexDirection: "row",
+
     },
 })
 

@@ -34,14 +34,14 @@ function HomeScreen() {
                 <Image style={styles.image} source={require('../assets/images/Porsche-Taycan.png')} />
                 <View style={styles.info}>
 
-                    <View style = {styles.infoUp}>
+                    <View style={styles.infoUp}>
 
                         <Text style={styles.infoText}> Panamera 4 E-Hybrid</Text>
                         <Text style={styles.infoHeader}>Model </Text>
                         <Text style={styles.infoText}> 148km</Text>
                         <Text style={styles.infoHeader}>Range </Text>
                     </View>
-                    <View style = {styles.infoDown}>
+                    <View style={styles.infoDown}>
                         <Text style={styles.infoText}>Work</Text>
                         <Text style={styles.infoHeader}>Location</Text>
                         <Text style={styles.infoText}>Hannu</Text>
@@ -49,13 +49,21 @@ function HomeScreen() {
                     </View>
                 </View>
                 <View style={styles.interactions}>
-                    <GradientButton text={'Car Details'} navigate={navigateToCarDetails} style={styles.button} />
-                    <GradientButton text={'Car Control'} navigate={navigateToCarControl} style={styles.button} />
+                    <View style={styles.buttonElevation}>
+                        <GradientButton text={'Car Details'} navigate={navigateToCarDetails} style={styles.button} />
+                    </View>
+                    <View style={styles.buttonElevation}>
+                        <GradientButton text={'Car Control'} navigate={navigateToCarControl} style={styles.button} />
+                    </View>
                 </View>
                 <View style={styles.interactions}>
 
-                    <GradientButton text={'User Settings'} navigate={navigateToUserSettings} style={styles.button} />
-                    <GradientButton text={'Manage Membership'} navigate={navigateToMembership} style={styles.button} />
+                    <View style={styles.buttonElevation}>
+                        <GradientButton text={'User Settings'} navigate={navigateToUserSettings} style={styles.button} />
+                    </View>
+                    <View style={styles.buttonElevation}>
+                        <GradientButton text={'Manage Membership'} navigate={navigateToMembership} style={styles.button} />
+                    </View>
 
                 </View>
             </View>
@@ -80,14 +88,16 @@ const styles = StyleSheet.create({
         backgroundColor: light.box,
         borderRadius: 10,
         paddingBottom: 30,
-        
+
     },
     interactions: {
+        // flex: 1,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
         margin: 20,
-        
+        // backgroundColor: 'white',
+
     },
     elevation: {
         shadowColor: 'black',
@@ -119,8 +129,8 @@ const styles = StyleSheet.create({
         color: '#9a9897',
         textAlign: 'center',
         paddingBottom: 10,
-        fontSize:20,
-        
+        fontSize: 20,
+
     },
     info: {
         flex: 1,
@@ -128,11 +138,11 @@ const styles = StyleSheet.create({
         justifyContent: 'space-evenly',
         marginLeft: 20,
         marginRight: 20,
-        
+
     },
     infoUp: {
         justifyContent: 'center',
-        width:'50%',
+        width: '50%',
     },
     infoDown: {
         justifyContent: 'center',
@@ -140,9 +150,20 @@ const styles = StyleSheet.create({
     },
     button: {
         padding: 20,
-        width:195,
-        height:145,
-    }
+        width: '195',
+        height: '145',
+    },
+    buttonElevation: {
+        shadowColor: 'black',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5,
+        borderRadius: 10,
+        backgroundColor: 'white',
+        marginHorizontal: 10
+
+    },
 
 })
 

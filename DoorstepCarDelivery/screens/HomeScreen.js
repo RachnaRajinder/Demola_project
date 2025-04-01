@@ -48,6 +48,7 @@ function HomeScreen() {
                         <Text style={styles.infoHeader}>Current Profile</Text>
                     </View>
                 </View>
+
                 <View style={styles.interactions}>
                     <View style={styles.buttonElevation}>
                         <GradientButton text={'Car Details'} navigate={navigateToCarDetails} style={styles.button} />
@@ -91,12 +92,11 @@ const styles = StyleSheet.create({
 
     },
     interactions: {
-        // flex: 1,
+        flex: 1,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
         margin: 20,
-        // backgroundColor: 'white',
 
     },
     elevation: {
@@ -150,10 +150,12 @@ const styles = StyleSheet.create({
     },
     button: {
         padding: 20,
-        width: '195',
-        height: '145',
+        width: '100%',
+        height: '100%',
     },
     buttonElevation: {
+        width: '50%',
+        aspectRatio: 1.3 / 1,
         shadowColor: 'black',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.25,
@@ -161,9 +163,11 @@ const styles = StyleSheet.create({
         elevation: 5,
         borderRadius: 10,
         backgroundColor: 'white',
-        marginHorizontal: 10
+        marginHorizontal: 10,
+        backgroundColor: 'green',
 
     },
+
 
 })
 

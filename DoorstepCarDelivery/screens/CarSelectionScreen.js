@@ -110,6 +110,22 @@ const DATA = [
     seats: 5,
     fuelConsumption: '12.7 l/100 km',
   },
+  {
+    id: 7,
+    name: "Macan",
+    fueltype: "Gasoline",
+    image: require("../assets/images/porsche-macan.png"),
+    rating: 3.5,
+    price: "$100",
+    topSpeed:'232',
+    enginePower:'195',
+    acceleration:'6,2',
+    bodyType:'SUV', 
+    numOfCylinders: 4,
+    trans: 'automatic',
+    seats: 5,
+    fuelConsumption: '10.7 l/100 km',
+  },
 ];
 const CarItem = ({ car }) => {
     const navigation = useNavigation();
@@ -139,13 +155,6 @@ const CarItem = ({ car }) => {
       <Text style={styles.rating}>Rating: {car.rating} ⭐⭐⭐⭐⭐</Text>
       <Text style={styles.price}>Price: {car.price}</Text>
 
-      {/* Custom styled button */}
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => alert(`Booking ${car.name}`)}
-      >
-        <Text style={styles.buttonText}>Book Now</Text>
-      </TouchableOpacity>
     </View>
     </TouchableOpacity>
   );

@@ -40,31 +40,31 @@ function CarDetailsScreen() {
                     </View>
 
                     <View style={styles.box}>
-                    <Ionicons name={'speedometer-outline'} size={42} color={light.accent} style={styles.icon}/>
+                    <Ionicons name={'stats-chart-outline'} size={42} color={light.accent} style={styles.icon}/>
                     <Text style={styles.specs}>{enginePower} kw</Text>
                     <Text style={styles.specsHeader}>Engine Power</Text>
                     </View>
 
                     <View style={styles.box}>
-                    <Ionicons name={'speedometer-outline'} size={42} color={light.accent} style={styles.icon}/>
+                    <Ionicons name={'cellular-outline'} size={42} color={light.accent} style={styles.icon}/>
                     <Text style={styles.specs}>{acceleration} s</Text>
                     <Text style={styles.specsHeader}>Acceleration 0 - 100 km/h</Text>
                     </View>
 
                     <View style={styles.box}>
-                    <Ionicons name={'speedometer-outline'} size={42} color={light.accent} style={styles.icon}/>
+                    <Ionicons name={'cog-outline'} size={42} color={light.accent} style={styles.icon}/>
                     <Text style={styles.specs}>{numOfCylinders}</Text>
                     <Text style={styles.specsHeader}>Number of cylinders</Text>
                     </View>
 
                     <View style={styles.box}>
-                    <Ionicons name={'speedometer-outline'} size={42} color={light.accent} style={styles.icon}/>
+                    <Ionicons name={'git-branch-outline'} size={42} color={light.accent} style={styles.icon}/>
                     <Text style={styles.specs}>{trans}</Text>
                     <Text style={styles.specsHeader}>Transmission</Text>
                     </View>
 
                     <View style={styles.box}>
-                    <Ionicons name={'speedometer-outline'} size={42} color={light.accent} style={styles.icon}/>
+                    <Ionicons name={'man-outline'} size={42} color={light.accent} style={styles.icon}/>
                     <Text style={styles.specs}>{seats}</Text>
                     <Text style={styles.specsHeader}>Seats</Text>
                     </View>
@@ -72,10 +72,6 @@ function CarDetailsScreen() {
                     </View>
 
                     <GradientButton text={'Book now'} style={styles.BookButton} onPress={() => alert(`Booking ${name}`)}/>
-
-                    <TouchableOpacity style={styles.BookButton} onPress={() => alert(`Booking ${name}`)}>
-                        <Text style={styles.ButtonText}> Book Now </Text>
-                    </TouchableOpacity>
         </SafeAreaView>
     </ScrollView>
     );
@@ -87,8 +83,8 @@ const styles = StyleSheet.create({
         backgroundColor: light.background,
     },
     box: {
-        width: 150,
-        height: 134,
+        width: '43%',
+        height: '28%',
         margin: 12,
         backgroundColor: light.box,
         borderRadius: 10,

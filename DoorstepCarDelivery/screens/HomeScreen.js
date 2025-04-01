@@ -50,12 +50,14 @@ function HomeScreen() {
                 </View>
 
                 <View style={styles.interactions}>
+
                     <View style={styles.buttonElevation}>
                         <GradientButton text={'Car Details'} navigate={navigateToCarDetails} style={styles.button} />
                     </View>
                     <View style={styles.buttonElevation}>
                         <GradientButton text={'Car Control'} navigate={navigateToCarControl} style={styles.button} />
                     </View>
+
                 </View>
                 <View style={styles.interactions}>
 
@@ -92,12 +94,11 @@ const styles = StyleSheet.create({
 
     },
     interactions: {
-        flex: 1,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        margin: 20,
-
+        margin: '4%',
+        height: '20%'
     },
     elevation: {
         shadowColor: 'black',
@@ -118,7 +119,6 @@ const styles = StyleSheet.create({
         marginTop: 20,
     },
     infoText: {
-        flex: 1,
         textAlign: 'center',
         textAlignVertical: 'center',
         fontWeight: 'bold',
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
 
     },
     info: {
-        flex: 1,
+        flex: 2,
         flexDirection: 'row',
         justifyContent: 'space-evenly',
         marginLeft: 20,
@@ -149,22 +149,21 @@ const styles = StyleSheet.create({
         width: '50%',
     },
     button: {
-        padding: 20,
+        padding: '5%',
         width: '100%',
         height: '100%',
+        textOverflow: ''
     },
     buttonElevation: {
         width: '50%',
-        aspectRatio: 1.3 / 1,
+        height: '100%',
         shadowColor: 'black',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.25,
         shadowRadius: 4,
         elevation: 5,
         borderRadius: 10,
-        backgroundColor: 'white',
-        marginHorizontal: 10,
-        backgroundColor: 'green',
+        marginHorizontal: '1%',
 
     },
 

@@ -27,7 +27,8 @@ function CarDetailsScreen() {
                     <Text style={styles.EngineHeader}>{fueltype}</Text>
                     <Image style={styles.image} source={(image)} />
                     <Text style={styles.bodyType}> {bodyType} </Text>
-                    <Text style={styles.BodyHeader}> Body Type </Text>
+                    <Text style={styles.BodyHeader}> Fuel consumption {fuelConsumption} </Text>
+
 
                     <Text style={styles.smallHeader}> Features </Text>
 

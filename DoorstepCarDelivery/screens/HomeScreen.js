@@ -30,7 +30,7 @@ function HomeScreen() {
         <SafeAreaView style={styles.container}>
             <StatusBar backgroundColor='#fcc951'></StatusBar>
             <View style={[styles.box, styles.elevation]}>
-                <Text style={styles.header}>Porshce Panamera</Text>
+                <Text style={styles.header} numberOfLines={1} adjustsFontSizeToFit>Porshce Panamera</Text>
                 <Image style={styles.image} source={require('../assets/images/Porsche-Taycan.png')} />
                 <View style={styles.info}>
 
@@ -112,6 +112,8 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 40,
         textAlign: 'center',
+        backgroundColor: 'red',
+        height: '6%',
     },
     image: {
         width: '100%',
@@ -138,7 +140,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-evenly',
         marginLeft: 20,
         marginRight: 20,
-
+        height: '100%',
     },
     infoUp: {
         justifyContent: 'center',
@@ -164,7 +166,7 @@ const styles = StyleSheet.create({
         elevation: 5,
         borderRadius: 10,
         marginHorizontal: '1%',
-
+        backgroundColor: 'white',
     },
 
 

@@ -72,10 +72,6 @@ function CarDetailsScreen() {
                     </View>
 
                     <GradientButton text={'Book now'} style={styles.BookButton} onPress={() => alert(`Booking ${name}`)}/>
-
-                    <TouchableOpacity style={styles.BookButton} onPress={() => alert(`Booking ${name}`)}>
-                        <Text style={styles.ButtonText}> Book Now </Text>
-                    </TouchableOpacity>
         </SafeAreaView>
     </ScrollView>
     );
@@ -87,8 +83,8 @@ const styles = StyleSheet.create({
         backgroundColor: light.background,
     },
     box: {
-        width: 150,
-        height: 134,
+        width: '43%',
+        height: '28%',
         margin: 12,
         backgroundColor: light.box,
         borderRadius: 10,

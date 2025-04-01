@@ -8,7 +8,6 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 //  <GradientButton text={'Browse Cars'} navigate={navigateToCarDetails}/> */}
 const GradientButton = ({ text, navigate, style }) => {
   return (
-    <View style={styles.elevation}>
       <TouchableOpacity
         style={styles.container}
         onPress={navigate}
@@ -21,7 +20,6 @@ const GradientButton = ({ text, navigate, style }) => {
           <Text style={styles.buttonText}>{text}</Text>
         </LinearGradient>
       </TouchableOpacity>
-    </View>
   )
 }
 

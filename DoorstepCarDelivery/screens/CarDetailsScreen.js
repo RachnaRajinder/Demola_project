@@ -72,6 +72,8 @@ function CarDetailsScreen() {
                     </View>
 
                     <GradientButton text={'Book now'} style={styles.BookButton} onPress={() => alert(`Booking ${name}`)}/>
+                    <Text style={styles.priceHeader}>Total price </Text>
+                    <Text style={styles.price}>{price}</Text>
         </SafeAreaView>
     </ScrollView>
     );
@@ -124,7 +126,7 @@ const styles = StyleSheet.create({
     specsHeader: {
         color:'#9a9897',
         paddingLeft: 10,
-        marginBottom: 20,
+        marginBottom: 14,
     },
     BodyHeader: {
         color:'#9a9897',
@@ -141,10 +143,9 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     BookButton: {
-        alignSelf: 'center',
         borderRadius: 10,
         backgroundColor: light.accent,
-        width: '64%',
+        width: '40%',
         marginTop: 14,
         marginBottom: 14,
         fontWeight: 'bold',
@@ -174,7 +175,18 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         paddingTop: 10,
 
-    }
+    },
+    priceHeader: {
+        color:'#9a9897',
+        paddingLeft: 10,
+    },
+    price:{
+        fontWeight: 'bold',
+        color: light.accent,
+        fontSize: 24,
+        paddingLeft: 10,
+        paddingBottom: 10,
+    },
 })
 
 export default CarDetailsScreen;

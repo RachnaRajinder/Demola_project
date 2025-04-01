@@ -112,7 +112,6 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 40,
         textAlign: 'center',
-        backgroundColor: 'red',
         height: '6%',
     },
     image: {
@@ -130,7 +129,7 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
         color: '#9a9897',
         textAlign: 'center',
-        paddingBottom: 10,
+        paddingBottom: '5%',
         fontSize: 20,
 
     },
@@ -138,8 +137,7 @@ const styles = StyleSheet.create({
         flex: 2,
         flexDirection: 'row',
         justifyContent: 'space-evenly',
-        marginLeft: 20,
-        marginRight: 20,
+        marginHorizontal: '5%',
         height: '100%',
     },
     infoUp: {
@@ -154,7 +152,6 @@ const styles = StyleSheet.create({
         padding: '5%',
         width: '100%',
         height: '100%',
-        textOverflow: ''
     },
     buttonElevation: {
         width: '50%',

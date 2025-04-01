@@ -110,6 +110,22 @@ const DATA = [
     seats: 5,
     fuelConsumption: '12.7 l/100 km',
   },
+  {
+    id: 7,
+    name: "Macan",
+    fueltype: "Gasoline",
+    image: require("../assets/images/porsche-macan.png"),
+    rating: 3.5,
+    price: "$100",
+    topSpeed:'232',
+    enginePower:'195',
+    acceleration:'6,2',
+    bodyType:'SUV', 
+    numOfCylinders: 4,
+    trans: 'automatic',
+    seats: 5,
+    fuelConsumption: '10.7 l/100 km',
+  },
 ];
 const CarItem = ({ car }) => {
     const navigation = useNavigation();

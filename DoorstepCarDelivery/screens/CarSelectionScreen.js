@@ -139,13 +139,6 @@ const CarItem = ({ car }) => {
       <Text style={styles.rating}>Rating: {car.rating} ⭐⭐⭐⭐⭐</Text>
       <Text style={styles.price}>Price: {car.price}</Text>
 
-      {/* Custom styled button */}
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => alert(`Booking ${car.name}`)}
-      >
-        <Text style={styles.buttonText}>Book Now</Text>
-      </TouchableOpacity>
     </View>
     </TouchableOpacity>
   );

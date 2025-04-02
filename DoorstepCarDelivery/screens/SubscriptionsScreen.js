@@ -43,7 +43,31 @@ function SubscriptionsScreen() {
                             </View>
 
                             <Text style={styles.header}>Payment plan</Text>
-                            <Text>Lenght</Text>
+                            <View style={styles.sideBySide}>
+                                <View style={styles.greyBoxSmall}>
+                                    <Text style={styles.InfoText}> maksaaa vitusti</Text>
+                                </View>
+                                <View style={styles.greyBoxSmall}>
+                                    <Text style={styles.InfoText}> maksaaa vitusti enemmän pitempään</Text>
+                                </View>
+                            </View>
+
+                            <Text style={styles.header}>Lenght</Text>
+                            <View style={styles.sideBySide}>
+                                <View style={styles.greyBoxSmall}>
+                                    <Text style={styles.InfoText}>1 month</Text>
+                                </View>
+                                <View style={styles.greyBoxSmall}>
+                                    <Text style={styles.InfoText}> 6 months </Text>
+                                </View>
+                                <View style={styles.greyBoxSmall}>
+                                    <Text style={styles.InfoText}> 1 year </Text>
+                                </View>
+                                <View style={styles.greyBoxSmall}>
+                                    <Text style={styles.InfoText}> 2 years</Text>
+                                </View>
+                            </View>
+
                             </View>
                         </View>
                     </Modal>
@@ -127,6 +151,14 @@ const styles = StyleSheet.create({
         minWidth: '100%',
         flexDirection: "row",
     },
+    sideBySide: {
+        flexWrap: 'wrap',
+        flexDirection: 'row-reverse',
+        display: "flex",
+        justifyContent: "space-between",
+        minWidth: '100%',
+        flexDirection: "row",
+    },
     header: {
         textAlign: 'center',
         fontSize: 24,
@@ -142,7 +174,15 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         marginTop: 20,
         backgroundColor: light.background,
-        width: '92%',
+        width: 'auto',
+        borderRadius: 10,
+        padding: '2%',
+    },
+    greyBoxSmall: {
+        flexDirection: 'column',
+        marginTop: 20,
+        backgroundColor: light.background,
+        width: '40%',
         borderRadius: 10,
         padding: '2%',
     },
@@ -150,7 +190,7 @@ const styles = StyleSheet.create({
         textAlign: 'left',
         fontSize: 18,
     },
-    
+
 })
 
 export default SubscriptionsScreen;

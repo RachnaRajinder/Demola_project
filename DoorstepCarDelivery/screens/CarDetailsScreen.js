@@ -21,7 +21,6 @@ function CarDetailsScreen() {
     return (
     <ScrollView>
         <SafeAreaView style={styles.container}>
-            
             <StatusBar backgroundColor={light.accent}></StatusBar>
                     <Text style={styles.header}>{name}</Text>
                     <Text style={styles.EngineHeader}>{fueltype}</Text>

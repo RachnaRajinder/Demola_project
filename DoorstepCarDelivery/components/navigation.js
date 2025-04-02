@@ -8,11 +8,13 @@ import SubscriptionsScreen from '../screens/SubscriptionsScreen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { light, dark } from "../assets/colors/colors"
+// import CarControlScreen from '@/screens/CarControlScreen';
 
-const home = 'Home';
-const carDetails = 'Car details';
-const carSelection = 'Car selection';
+const home = 'Home'
+const carDetails = 'Car details'
+const carSelection = 'Car selection'
 const subscriptions = 'Subscriptions'
+const carControl = 'Car Control'
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -47,6 +49,7 @@ export function OGNavigation() {
             <Tab.Screen name={home} component={HomeScreen} />
             <Tab.Screen name={subscriptions} component={SubscriptionsScreen} />
             <Tab.Screen name={carSelection} component={CarSelectionScreen} />
+            {/* <Tab.Screen name={carControl} component={CarControlScreen} /> */}
         </Tab.Navigator>
     )
 }
@@ -67,7 +70,7 @@ export default function Navigation() {
                 name="OGNavigation"
                 component={OGNavigation}
                 options={{ headerShown: false }}
-            />            
+            />
             <Stack.Screen name={carDetails} component={CarDetailsScreen}
             />
 

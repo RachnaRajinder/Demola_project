@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     EngineHeader: {
-        backgroundColor:'#D8D6D5',
+        backgroundColor:light.box,
         textAlign: 'center',
         borderRadius: 10,
         width: 'auto',
@@ -170,6 +170,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 18,
         fontWeight: 'bold',
+        textDecorationLine: 'underline',
     },
     smallHeader:
     {

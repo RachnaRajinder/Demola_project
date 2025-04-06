@@ -119,6 +119,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
     },
     infoBox: {
+        flex: 1,
         flexDirection: 'row',
         flexWrap: 'wrap',
         borderColor: light.accent,
@@ -160,7 +161,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     EngineHeader: {
-        backgroundColor:'#D8D6D5',
+        backgroundColor:light.box,
         textAlign: 'center',
         borderRadius: 10,
         width: 'auto',
@@ -172,12 +173,13 @@ const styles = StyleSheet.create({
     BookButton: {
         borderRadius: 10,
         backgroundColor: light.accent,
-        width: '40%',
-        marginTop: 14,
+        width: 'auto',
         marginBottom: 14,
+        marginRight: 14, 
         fontWeight: 'bold',
         textAlign: 'center',
-        padding: 8,
+        paddingVertical: 12,
+        paddingHorizontal: 32,
         fontWeight: 'bold',
     },
     ButtonText: {
@@ -190,6 +192,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 18,
         fontWeight: 'bold',
+        textDecorationLine: 'underline',
     },
     smallHeader:
     {
@@ -213,6 +216,16 @@ const styles = StyleSheet.create({
         fontSize: 24,
         paddingLeft: 10,
         paddingBottom: 10,
+    },
+    booking: {
+        flex: 1,
+        flexWrap: 'wrap',
+        flexDirection: 'row-reverse',
+        display: "flex",
+        justifyContent: "space-between",
+        minWidth: '100%',
+        flexDirection: "row",
+
     },
 })
 

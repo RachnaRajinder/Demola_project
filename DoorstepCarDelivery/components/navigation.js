@@ -70,7 +70,7 @@ export default function Navigation() {
                 name="OGNavigation"
                 component={OGNavigation}
                 options={{ headerShown: false }}
-            />            
+            />
             <Stack.Screen name={carDetails} component={CarDetailsScreen}
             />
 

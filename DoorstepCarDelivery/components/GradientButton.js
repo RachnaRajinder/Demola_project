@@ -2,11 +2,13 @@ import { light } from '@/assets/colors/colors'
 import { LinearGradient } from 'expo-linear-gradient'
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { textScale } from './ScreenScaling'
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 
 //Button component to use, variables are 'style' to add styling, 'text' appears on box and 'navigate' is for button effect 
 //  <GradientButton text={'Browse Cars'} navigate={navigateToCarDetails}/> */}
-const GradientButton = ({ text, navigate, style }) => {
+const GradientButton = ({ text, navigate, style, icon }) => {
   return (
 
     // <View style={styles.elevation}>
@@ -19,6 +21,7 @@ const GradientButton = ({ text, navigate, style }) => {
           start={{ x: 0.4, y: 0.7 }}
           style={[styles.button, style]}
         >
+         {icon &&  <Ionicons name={icon} size={42} color={light.box} style={styles.icon} />}
           <Text style={styles.buttonText}>{text}</Text>
         </LinearGradient>
       </TouchableOpacity>
@@ -27,17 +30,6 @@ const GradientButton = ({ text, navigate, style }) => {
 }
 
 const styles = StyleSheet.create({
-  elevation: {
-    shadowColor: 'black',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
-    borderRadius: 10,
-    backgroundColor: 'white',
-    marginHorizontal: 10
-
-  },
   container: {
     borderRadius: 10,
     overflow: 'hidden',
@@ -51,7 +43,8 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontWeight: 'bold',
-    fontSize: 25,
+    fontSize: textScale(23),
+    textAlign: 'center',
   }
 });
 

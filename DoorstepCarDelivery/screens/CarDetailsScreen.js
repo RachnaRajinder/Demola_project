@@ -2,80 +2,107 @@ import React, { Component } from 'react';
 import { StyleSheet, View, StatusBar, Text, Image, ScrollView, Button, TouchableOpacity, Alert } from 'react-native';
 import { light, dark } from "../assets/colors/colors"
 import { SafeAreaView } from 'react-native-safe-area-context';
-import CarSelectionScreen from './CarSelectionScreen';
 import { useRoute } from '@react-navigation/native';
 import GradientButton from '@/components/GradientButton';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { useNavigation } from 'expo-router';
 
 function CarDetailsScreen() {
+    const navigation = useNavigation();
+
     const route = useRoute()
     const { id, name, fueltype, image, rating, price, topSpeed, 
             enginePower, acceleration, bodyType, numOfCylinders, 
             trans, seats, fuelConsumption } = route.params || { id: 1 }
     console.log("toimiiko", id, name)
 
-    const BookNow = () => {
-        Alert.alert('booking page')
-    }
-
     return (
-    <ScrollView>
+      <ScrollView>
         <SafeAreaView style={styles.container}>
-            
-            <StatusBar backgroundColor={light.accent}></StatusBar>
-                    <Text style={styles.header}>{name}</Text>
-                    <Text style={styles.EngineHeader}>{fueltype}</Text>
-                    <Image style={styles.image} source={(image)} />
-                    <Text style={styles.bodyType}> {bodyType} </Text>
-                    <Text style={styles.BodyHeader}> Body Type </Text>
+          <StatusBar backgroundColor={light.accent}></StatusBar>
+          <Text style={styles.header}>{name}</Text>
+          <Text style={styles.EngineHeader}>{fueltype}</Text>
+          <Image style={styles.image} source={image} />
+          <Text style={styles.bodyType}> {bodyType} </Text>
+          <Text style={styles.BodyHeader}> Body Type </Text>
+          <Text style={styles.smallHeader}> Features </Text>
+          <View style={styles.infoBox}>
+            <View style={styles.box}>
+              <Ionicons
+                name={"speedometer-outline"}
+                size={42}
+                color={light.accent}
+                style={styles.icon}
+              />
+              <Text style={styles.specs}>{topSpeed} km/h</Text>
+              <Text style={styles.specsHeader}>Top speed</Text>
+            </View>
 
-                    <Text style={styles.smallHeader}> Features </Text>
+            <View style={styles.box}>
+              <Ionicons
+                name={"stats-chart-outline"}
+                size={42}
+                color={light.accent}
+                style={styles.icon}
+              />
+              <Text style={styles.specs}>{enginePower} kw</Text>
+              <Text style={styles.specsHeader}>Engine Power</Text>
+            </View>
 
-                    <View style={styles.infoBox}>
-                    
-                    <View style={styles.box}>
-                    <Ionicons name={'speedometer-outline'} size={42} color={light.accent} style={styles.icon}/>
-                    <Text style={styles.specs}>{topSpeed} km/h</Text>
-                    <Text style={styles.specsHeader}>Top speed</Text>
-                    </View>
+            <View style={styles.box}>
+              <Ionicons
+                name={"cellular-outline"}
+                size={42}
+                color={light.accent}
+                style={styles.icon}
+              />
+              <Text style={styles.specs}>{acceleration} s</Text>
+              <Text style={styles.specsHeader}>Acceleration 0 - 100 km/h</Text>
+            </View>
 
-                    <View style={styles.box}>
-                    <Ionicons name={'stats-chart-outline'} size={42} color={light.accent} style={styles.icon}/>
-                    <Text style={styles.specs}>{enginePower} kw</Text>
-                    <Text style={styles.specsHeader}>Engine Power</Text>
-                    </View>
+            <View style={styles.box}>
+              <Ionicons
+                name={"cog-outline"}
+                size={42}
+                color={light.accent}
+                style={styles.icon}
+              />
+              <Text style={styles.specs}>{numOfCylinders}</Text>
+              <Text style={styles.specsHeader}>Number of cylinders</Text>
+            </View>
 
-                    <View style={styles.box}>
-                    <Ionicons name={'cellular-outline'} size={42} color={light.accent} style={styles.icon}/>
-                    <Text style={styles.specs}>{acceleration} s</Text>
-                    <Text style={styles.specsHeader}>Acceleration 0 - 100 km/h</Text>
-                    </View>
+            <View style={styles.box}>
+              <Ionicons
+                name={"git-branch-outline"}
+                size={42}
+                color={light.accent}
+                style={styles.icon}
+              />
+              <Text style={styles.specs}>{trans}</Text>
+              <Text style={styles.specsHeader}>Transmission</Text>
+            </View>
 
-                    <View style={styles.box}>
-                    <Ionicons name={'cog-outline'} size={42} color={light.accent} style={styles.icon}/>
-                    <Text style={styles.specs}>{numOfCylinders}</Text>
-                    <Text style={styles.specsHeader}>Number of cylinders</Text>
-                    </View>
+            <View style={styles.box}>
+              <Ionicons
+                name={"man-outline"}
+                size={42}
+                color={light.accent}
+                style={styles.icon}
+              />
+              <Text style={styles.specs}>{seats}</Text>
+              <Text style={styles.specsHeader}>Seats</Text>
+            </View>
+          </View>
 
-                    <View style={styles.box}>
-                    <Ionicons name={'git-branch-outline'} size={42} color={light.accent} style={styles.icon}/>
-                    <Text style={styles.specs}>{trans}</Text>
-                    <Text style={styles.specsHeader}>Transmission</Text>
-                    </View>
-
-                    <View style={styles.box}>
-                    <Ionicons name={'man-outline'} size={42} color={light.accent} style={styles.icon}/>
-                    <Text style={styles.specs}>{seats}</Text>
-                    <Text style={styles.specsHeader}>Seats</Text>
-                    </View>
-                    
-                    </View>
-
-                    <GradientButton text={'Book now'} style={styles.BookButton} onPress={() => alert(`Booking ${name}`)}/>
-                    <Text style={styles.priceHeader}>Total price </Text>
-                    <Text style={styles.price}>{price}</Text>
+          <GradientButton
+            text={"Book now"}
+            style={styles.BookButton}
+            onPress ={() => navigation.navigate('BookingScreen')}
+          />
+          <Text style={styles.priceHeader}>Total price </Text>
+          <Text style={styles.price}>{price}</Text>
         </SafeAreaView>
-    </ScrollView>
+      </ScrollView>
     );
 }
 

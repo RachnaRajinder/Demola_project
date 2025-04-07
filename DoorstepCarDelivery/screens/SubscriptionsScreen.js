@@ -3,8 +3,8 @@ import React, {useState} from "react";
 import { StyleSheet, View, Text, StatusBar, Button, TouchableOpacity, Alert, ScrollView, Modal, Pressable, Image, ImageBackground } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { LinearGradient } from 'expo-linear-gradient'
-
+import { LinearGradient } from 'expo-linear-gradient';
+import GradientButton from "@/components/GradientButton";
 
 function SubscriptionsScreen() {
     const [modal1Visible, setModal1Visible] = useState(false);
@@ -26,6 +26,7 @@ function SubscriptionsScreen() {
                             ><Text style={styles.priceHeader}>NORMAL</Text>
                             </LinearGradient>
                          </View>
+                    
                     <Modal
                         animationType="slide"
                         transparent={true}
@@ -33,13 +34,14 @@ function SubscriptionsScreen() {
                         onRequestClose={() => {
                             setModal1Visible(!modal1Visible);
                         }}>
+                            <ScrollView>
                     
                         <View style={styles.modalView}>   
                             <View style={styles.booking}>
                             <Text style={styles.price}>Normal</Text>  
                             <View>
                             <Pressable
-                                style={[styles.button, styles.buttonClose]}
+                                style={[styles.buttonClose]}
                                 onPress={() => setModal1Visible(!modal1Visible)}>
                                 <Ionicons name={'close-outline'} size={26} color={light.box}/>
                             </Pressable>
@@ -49,19 +51,25 @@ function SubscriptionsScreen() {
                             <View style={styles.infoBox}>
                             <Text style={styles.header}>Details</Text>
                             <View style={styles.greyBox}>
-                                <Text style={styles.InfoText}>You can change car monthly</Text>
-                                <Text style={styles.InfoText}>When changing your car you take it to a nearby Changy carage and leave it there and take your new car with you</Text>
-                                <Text style={styles.InfoText}>you gain access to car control</Text>
+                                <Text style={styles.detailsText}>
+                                <Ionicons name={'car-sport-outline'} size={28} color={'black'}/>
+                                You can change car monthly</Text>
+                                <Text style={styles.detailsText}>
+                                <Ionicons name={'construct-outline'} size={28} color={'black'}/>
+                                When changing your car you take it to a nearby Changy carage and leave it there and take your new car with you</Text>
+                                <Text style={styles.detailsText}>
+                                <Ionicons name={'phone-portrait-outline'} size={28} color={'black'}/>
+                                you gain access to car control</Text>
 
                             </View>
 
                             <Text style={styles.header}>Payment plan</Text>
                             <View style={styles.sideBySide}>
                                 <View style={styles.greyBoxSmall}>
-                                    <Text style={styles.InfoText}> maksaaa vitusti</Text>
+                                    <Text style={styles.InfoText}> weekly</Text>
                                 </View>
                                 <View style={styles.greyBoxSmall}>
-                                    <Text style={styles.InfoText}> maksaaa vitusti enemmän pitempään</Text>
+                                    <Text style={styles.InfoText}> monthly</Text>
                                 </View>
                             </View>
 
@@ -82,8 +90,11 @@ function SubscriptionsScreen() {
                             </View>
 
                             </View>
+                            <GradientButton style={styles.buyButton} text={'BUY'}></GradientButton>
                         </View>
+                        </ScrollView>
                     </Modal>
+                    
                     <Text style={styles.priceM}>1000€</Text>
                     
                     <Text style={styles.previewText}>
@@ -116,8 +127,6 @@ function SubscriptionsScreen() {
 
 
 
-
-
                     <View style={styles.box}>
                         <View>  
                             <LinearGradient
@@ -134,13 +143,14 @@ function SubscriptionsScreen() {
                         onRequestClose={() => {
                             setModal2Visible(!modal2Visible);
                         }}>
+                        <ScrollView>
                     
                         <View style={styles.modalView}>   
                             <View style={styles.booking}>
                             <Text style={styles.price}>Medium</Text>  
                             <View>
                             <Pressable
-                                style={[styles.button, styles.buttonClose]}
+                                style={[styles.buttonClose]}
                                 onPress={() => setModal2Visible(!modal2Visible)}>
                                 <Ionicons name={'close-outline'} size={26} color={light.box}/>
                             </Pressable>
@@ -150,19 +160,25 @@ function SubscriptionsScreen() {
                             <View style={styles.infoBox}>
                             <Text style={styles.header}>Details</Text>
                             <View style={styles.greyBox}>
-                                <Text style={styles.InfoText}>You can change car monthly</Text>
-                                <Text style={styles.InfoText}>When changing your car you take it to a nearby Changy carage and leave it there and take your new car with you</Text>
-                                <Text style={styles.InfoText}>you gain access to car control</Text>
+                                <Text style={styles.detailsText}>
+                                <Ionicons name={'car-sport-outline'} size={28} color={'black'}/>
+                                    You can change car weekly</Text>
+                                <Text style={styles.detailsText}>
+                                <Ionicons name={'construct-outline'} size={28} color={'black'}/>
+                                    When changing your car you take it to a nearby Changy garage and leave it there and take your new car with you. Or leave your car home and we'll come and ghange it for you</Text>
+                                <Text style={styles.detailsText}>
+                                <Ionicons name={'phone-portrait-outline'} size={28} color={'black'}/>
+                                    you gain access to car control and customization</Text>
 
                             </View>
 
                             <Text style={styles.header}>Payment plan</Text>
                             <View style={styles.sideBySide}>
                                 <View style={styles.greyBoxSmall}>
-                                    <Text style={styles.InfoText}> maksaaa vitusti</Text>
+                                    <Text style={styles.InfoText}> Weekly</Text>
                                 </View>
                                 <View style={styles.greyBoxSmall}>
-                                    <Text style={styles.InfoText}> maksaaa vitusti enemmän pitempään</Text>
+                                    <Text style={styles.InfoText}> Monthly</Text>
                                 </View>
                             </View>
 
@@ -181,9 +197,10 @@ function SubscriptionsScreen() {
                                     <Text style={styles.InfoText}> 2 years</Text>
                                 </View>
                             </View>
-
                             </View>
+                            <GradientButton style={styles.buyButton} text={'BUY'}></GradientButton>
                         </View>
+                        </ScrollView>
                     </Modal>
                     <Text style={styles.priceM}>2500€</Text>
                     
@@ -204,13 +221,17 @@ function SubscriptionsScreen() {
                     </View>
 
 
+
+
+
+
                     
                     
                     
                     
                     
                     
-                    <View style={styles.box}>
+                    <View style={styles.boxP}>
                         <View >  
                             <LinearGradient
                                 colors={[light.accent, light.fade]}
@@ -226,13 +247,13 @@ function SubscriptionsScreen() {
                         onRequestClose={() => {
                             setModal3Visible(!modal3Visible);
                         }}>
-                    
+                        <ScrollView>
                         <View style={styles.modalView}>   
                             <View style={styles.booking}>
                             <Text style={styles.price}>Premium</Text>  
                             <View>
                             <Pressable
-                                style={[styles.button, styles.buttonClose]}
+                                style={[styles.buttonClose]}
                                 onPress={() => setModal3Visible(!modal3Visible)}>
                                 <Ionicons name={'close-outline'} size={26} color={light.box}/>
                             </Pressable>
@@ -242,19 +263,25 @@ function SubscriptionsScreen() {
                             <View style={styles.infoBox}>
                             <Text style={styles.header}>Details</Text>
                             <View style={styles.greyBox}>
-                                <Text style={styles.InfoText}>You can change car monthly</Text>
-                                <Text style={styles.InfoText}>When changing your car you take it to a nearby Changy carage and leave it there and take your new car with you</Text>
-                                <Text style={styles.InfoText}>you gain access to car control</Text>
+                                <Text style={styles.detailsText}>
+                                <Ionicons name={'car-sport-outline'} size={28} color={'black'}/>
+                                    You can change car daily</Text>
+                                <Text style={styles.detailsText}>
+                                <Ionicons name={'construct-outline'} size={28} color={'black'}/>
+                                    When changing your car you take it to a nearby Changy garage, or where ever you like</Text>
+                                <Text style={styles.detailsText}>
+                                <Ionicons name={'phone-portrait-outline'} size={28} color={'black'}/>
+                                    you gain access to car control, parts customization, and infotainment customization</Text>
 
                             </View>
 
                             <Text style={styles.header}>Payment plan</Text>
                             <View style={styles.sideBySide}>
                                 <View style={styles.greyBoxSmall}>
-                                    <Text style={styles.InfoText}> maksaaa vitusti</Text>
+                                    <Text style={styles.InfoText}> Weekly</Text>
                                 </View>
                                 <View style={styles.greyBoxSmall}>
-                                    <Text style={styles.InfoText}> maksaaa vitusti enemmän pitempään</Text>
+                                    <Text style={styles.InfoText}> Monthly</Text>
                                 </View>
                             </View>
 
@@ -273,20 +300,21 @@ function SubscriptionsScreen() {
                                     <Text style={styles.InfoText}> 2 years</Text>
                                 </View>
                             </View>
-
                             </View>
+                            <GradientButton style={styles.buyButton} text={'BUY'}></GradientButton>
                         </View>
+                        </ScrollView>
                     </Modal>
                     <Text style={styles.priceM}>4000€</Text>
                     
-                    <Text style={styles.previewText}>
-                    <Ionicons name={'car-sport-outline'} size={28} color={'black'}/>
+                    <Text style={styles.previewTextP}>
+                    <Ionicons name={'car-sport-outline'} size={28} color={'white'}/>
                     Change car daily</Text>
-                    <Text style={styles.previewText}>
-                    <Ionicons name={'construct-outline'} size={28} color={'black'}/>
+                    <Text style={styles.previewTextP}>
+                    <Ionicons name={'construct-outline'} size={28} color={'white'}/>
                     Change car where ever</Text>
-                    <Text style={styles.previewText}>
-                    <Ionicons name={'phone-portrait-outline'} size={28} color={'black'}/>
+                    <Text style={styles.previewTextP}>
+                    <Ionicons name={'phone-portrait-outline'} size={28} color={'white'}/>
                     Car control and parts customization</Text>
                     <Pressable
                         style={[styles.button, styles.buttonOpen]}
@@ -318,6 +346,16 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         paddingBottom: '1%',
     },
+    boxP: {
+        flex: 1,
+        flexDirection: 'column',
+        width: '92%',
+        marginTop: 20,
+        marginBottom: 20,
+        backgroundColor: 'black',
+        borderRadius: 10,
+        paddingBottom: '1%',
+    },
     modalView: {
         margin: 10,
         backgroundColor: 'white',
@@ -335,6 +373,15 @@ const styles = StyleSheet.create({
         padding: 8,
         elevation: 2,
       },
+      buyButton: {
+        borderRadius: 20,
+        paddingLeft: '20%',
+        paddingRight: '20%',
+        paddingTop: '3%',
+        paddingBottom: '3%',
+        elevation: 2,
+        marginBottom:'2%',
+      },
       buttonOpen: {
         backgroundColor: light.accent,
         margin: '6%',
@@ -343,6 +390,9 @@ const styles = StyleSheet.create({
       buttonClose: {
         backgroundColor: light.accent,
         alignSelf: 'flex-end',
+        borderRadius: 20,
+        padding: 8,
+        elevation: 2,
       },
       textStyle: {
         color: 'white',
@@ -382,6 +432,18 @@ const styles = StyleSheet.create({
         marginRight:'10%',
         marginTop:'1%',
     },
+    previewTextP:{
+        fontSize: 18,
+        paddingBottom: 10,
+        paddingLeft:'10%',
+        textAlign: 'left',
+        borderBottomWidth: 3,
+        borderColor: light.background,
+        marginLeft:'10%',
+        marginRight:'10%',
+        marginTop:'1%',
+        color:'white',
+    },
     priceHeader:{
         fontWeight: 'bold',
         fontSize: 40,
@@ -408,7 +470,13 @@ const styles = StyleSheet.create({
     header: {
         textAlign: 'center',
         fontSize: 24,
+        fontWeight:'bold',
         paddingTop: 20,
+        paddingBottom: '2%',
+        marginLeft: '10%',
+        marginRight: '10%',
+        borderBottomWidth: 3,
+        borderBottomColor: light.accent,
     },
     infoBox: {
         flexDirection: 'column',
@@ -419,10 +487,10 @@ const styles = StyleSheet.create({
     greyBox: {
         flexDirection: 'column',
         marginTop: 20,
-        backgroundColor: light.background,
+        backgroundColor: 'white',
         width: 'auto',
         borderRadius: 10,
-        padding: '2%',
+        padding: '4%',
     },
     greyBoxSmall: {
         flexDirection: 'column',
@@ -433,14 +501,17 @@ const styles = StyleSheet.create({
         padding: '2%',
     },
     InfoText: {
-        textAlign: 'left',
+        textAlign: 'center',
         fontSize: 18,
     },
-    image: {
-        height: 150,
-        width: "100%",
-      },
-      ImageBackground: {
+    detailsText: {
+        textAlign: 'left',
+        fontSize: 18,
+        padding: '2%',
+        borderBottomColor: light.background,
+        borderBottomWidth: 3,
+    },
+    ImageBackground: {
         backgroundColor: light.accent,
         borderCurve: 'circular',
         borderTopLeftRadius: 10,

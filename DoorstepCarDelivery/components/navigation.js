@@ -49,23 +49,22 @@ export function OGNavigation() {
         <Tab.Screen name={home} component={HomeScreen} />
         <Tab.Screen name={subscriptions} component={SubscriptionsScreen} />
         <Tab.Screen name={carSelection} component={CarSelectionScreen} />
-        <Tab.Screen name={bookingScreen} component={BookingScreen} />
       </Tab.Navigator>
     );
-}
+  }
 
 export default function Navigation() {
 
     return (
-        <Stack.Navigator
-            screenOptions={() => ({
+      <Stack.Navigator
+      screenOptions={() => ({
                 tabBarActiveTintColor: 'black',
                 tabBarInactiveTintColor: '#545454',
                 labelStyle: { paddingBottom: 4, fontSize: 10 },
                 headerStyle: { backgroundColor: light.box },
                 headerTitleAlign: 'center',
-            })}
-        >
+              })}
+              >
             <Stack.Screen
                 name="OGNavigation"
                 component={OGNavigation}
@@ -73,6 +72,7 @@ export default function Navigation() {
             />
             <Stack.Screen name={carDetails} component={CarDetailsScreen}
             />
+            <Stack.Screen name={bookingScreen} component={BookingScreen} />
 
         </Stack.Navigator>
     )

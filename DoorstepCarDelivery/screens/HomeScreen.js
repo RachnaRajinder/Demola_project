@@ -75,7 +75,8 @@ function HomeScreen() {
                             text={''}
                             navigate={addNewProfile}
                             icon='add-circle-outline'
-                            style={[styles.buttonChange]} />
+                            style={[styles.buttonChange]}
+                             />
                             </TouchableOpacity>
 
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginRight: scale(50) }}>
@@ -230,7 +231,7 @@ const styles = StyleSheet.create({
     header: {
         marginTop: scale(10),
         fontWeight: 'bold',
-        fontSize: textScale(34),
+        fontSize: 40,
         textAlign: 'center',
         height: scale(50),
     },
@@ -282,6 +283,8 @@ const styles = StyleSheet.create({
         padding: '5%',
         width: '100%',
         height: '100%',
+        fontSize: 25,
+        
     },
     buttonModal: {
         padding: '5%',
@@ -342,6 +345,9 @@ const styles = StyleSheet.create({
         shadowRadius: 15,
         // elevation: 5,
         borderRadius: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        
     },
 
 

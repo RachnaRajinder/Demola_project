@@ -210,8 +210,9 @@ const styles = StyleSheet.create({
     flex: 3,
     height:'100%',
     width: '200',
-    marginTop: 5,
     alignItems: 'center',
+    borderLeftWidth: 2,
+    borderLeftColor: light.accent
     
   },
   carName: {

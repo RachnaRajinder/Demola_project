@@ -8,13 +8,13 @@ import SubscriptionsScreen from '../screens/SubscriptionsScreen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { light, dark } from "../assets/colors/colors"
-// import CarControlScreen from '@/screens/CarControlScreen';
+import BookingScreen from '@/screens/BookingScreen';
 
-const home = 'Home'
-const carDetails = 'Car details'
-const carSelection = 'Car selection'
-const subscriptions = 'Subscriptions'
-const carControl = 'Car Control'
+const home = 'Home';
+const carDetails = 'Car details';
+const carSelection = 'Car selection';
+const subscriptions = 'Subscriptions';
+const bookingScreen = 'BookingScreen'
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -22,36 +22,36 @@ const Stack = createNativeStackNavigator();
 export function OGNavigation() {
 
     return (
-        <Tab.Navigator
-            initialRouteName={home}
-            screenOptions={({ route }) => ({
-                tabBarIcon: ({ focused, color, size }) => {
-                    let iconName;
-                    let rn = route.name;
+      <Tab.Navigator
+        initialRouteName={home}
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
+            let rn = route.name;
 
-                    if (rn === home) {
-                        iconName = focused ? 'home' : 'home-outline'
-                    } else if (rn === carSelection) {
-                        iconName = focused ? 'car-sport' : 'car-sport-outline'
-                    } else if (rn === subscriptions) {
-                        iconName = focused ? 'cart' : 'cart-outline'
-                    }
-                    return <Ionicons name={iconName} size={size} color={color} />
-                },
-                tabBarActiveTintColor: light.accent,
-                tabBarInactiveTintColor: '#545454',
-                labelStyle: { paddingBottom: 4, fontSize: 10 },
-                tabBarStyle: { backgroundColor: light.box },
-                headerStyle: { backgroundColor: light.box },
-                headerTitleAlign: 'center',
-            })}
-        >
-            <Tab.Screen name={home} component={HomeScreen} />
-            <Tab.Screen name={subscriptions} component={SubscriptionsScreen} />
-            <Tab.Screen name={carSelection} component={CarSelectionScreen} />
-            {/* <Tab.Screen name={carControl} component={CarControlScreen} /> */}
-        </Tab.Navigator>
-    )
+            if (rn === home) {
+              iconName = focused ? "home" : "home-outline";
+            } else if (rn === carSelection) {
+              iconName = focused ? "car-sport" : "car-sport-outline";
+            } else if (rn === subscriptions) {
+              iconName = focused ? "cart" : "cart-outline";
+            }
+            return <Ionicons name={iconName} size={size} color={color} />;
+          },
+          tabBarActiveTintColor: light.accent,
+          tabBarInactiveTintColor: "#545454",
+          labelStyle: { paddingBottom: 4, fontSize: 10 },
+          tabBarStyle: { backgroundColor: light.box },
+          headerStyle: { backgroundColor: light.box },
+          headerTitleAlign: "center",
+        })}
+      >
+        <Tab.Screen name={home} component={HomeScreen} />
+        <Tab.Screen name={subscriptions} component={SubscriptionsScreen} />
+        <Tab.Screen name={carSelection} component={CarSelectionScreen} />
+        <Tab.Screen name={bookingScreen} component={BookingScreen} />
+      </Tab.Navigator>
+    );
 }
 
 export default function Navigation() {

@@ -30,6 +30,12 @@ const GradientButton = ({ text, navigate, style, icon }) => {
 }
 
 const styles = StyleSheet.create({
+  button: {
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+  },
   container: {
     borderRadius: 10,
     overflow: 'hidden',
@@ -38,13 +44,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: textScale(18),
     textAlign: 'center',
-  },
-  button: {
-    borderRadius: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-    alignSelf: 'center',
-
   },
 });
 

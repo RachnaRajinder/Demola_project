@@ -154,15 +154,15 @@ const CarItem = ({ car }) => {
         />
         <View style={{flex:1, flexDirection: 'row',marginTop: 10,
         }}>
-          <View>
+          <View style={{flex:2}}>
             <Text style={styles.carName}>{car.name}</Text>
             <Text style={styles.fueltype}>FuelType: {car.fueltype}</Text>
             <Text style={styles.rating}>Rating: {car.rating} ⭐⭐⭐⭐⭐</Text>
             <Text style={styles.price}>Price: {car.price}</Text>
           </View>
-          <View>
+          <View style= {styles.imageStats}>
             {/* <Text>kuva</Text> */}
-            <Image resizeMode='cover' style={styles.imageStats} source={require('../assets/images/stats2.png')} />
+            <Image resizeMode='contain' style={styles.imageStats} source={require('../assets/images/stats2.png')} />
           </View>
         </View>
 
@@ -196,12 +196,10 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   carBox: {
-    flex:1,
     backgroundColor: "#F3F3F4",
     borderRadius: 10,
     padding: 15,
     marginBottom: 10,
-    flexDirection: 'column',
 
   },
   image: {
@@ -210,9 +208,8 @@ const styles = StyleSheet.create({
   },
   imageStats: {
     flex: 3,
-    height:0,
-    width: '207',
-    marginLeft: 90,
+    height:'100%',
+    width: '200',
     marginTop: 5,
     alignItems: 'center',
     

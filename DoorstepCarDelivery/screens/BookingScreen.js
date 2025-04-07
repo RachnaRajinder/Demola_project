@@ -1,39 +1,43 @@
-import { Modal, StyleSheet, Text, Touchable, TouchableOpacity, View } from 'react-native'
-import { useState } from 'react'
-import DataPicker from 'react-native-date-picker'
-import { getToday, getFormatDate } from 'react-native-modern-datepicker'
-
+import { Modal, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { useState } from "react";
+import { Calendar } from "react-native-calendars";
+import { width } from "@/components/ScreenScaling";
 
 const BookingScreen = () => {
-  
-  const [open, setopen] = useState(false)
-
-  function handlePress()  {
-    setopen(!open);
-  }
-
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={handlePress}>
-        <Text>open</Text>
-      </TouchableOpacity>
-      
-      <Modal
-        animationType='slide'
-        transparent={true}
-        visible={open}
-       >
 
-      <View style={styles.centeredview}>
-       <View style={styles.modalView}></View>
-      </View>
-    
-      </Modal>
-        
+        <Calendar
+          // Customize the appearance of the calendar
+          style={{
+            borderWidth: 1,
+            borderColor: "gray",
+            height: 350,
+            width: 350,
+          }}
+          current={"2023-03-01"}
+          // Callback that gets called when the user selects a day
+          onDayPress={(day) => {
+            console.log("selected day", day);
+          }}
+          markedDates={{
+            "2023-03-01": {
+              selected: true,
+              marked: true,
+              selectedColor: "blue",
+            },
+            "2023-03-02": { marked: true },
+            "2023-03-03": {
+              selected: true,
+              marked: true,
+              selectedColor: "blue",
+            },
+          }}
+        />
     </View>
   );
-}
-export default BookingScreen
+};
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -41,10 +45,38 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  centeredview: {
-   margin:20,
-   backgroundColor: 'red',
-   width: '90%',
-   padding: 35,
-  }
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  modalView: {
+    margin: 50,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  button: {
+    borderRadius: 10,
+    padding: 10,
+    elevation: 2,
+    backgroundColor: "blue",
+    marginTop: 10,
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center",
+  },
 });
+
+export default BookingScreen;

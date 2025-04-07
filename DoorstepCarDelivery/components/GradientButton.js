@@ -12,19 +12,19 @@ const GradientButton = ({ text, navigate, style, icon }) => {
   return (
 
     // <View style={styles.elevation}>
-      <TouchableOpacity
-        style={styles.container}
-        onPress={navigate}
+    <TouchableOpacity
+      style={styles.container}
+      onPress={navigate}
+    >
+      <LinearGradient
+        colors={[light.accent, light.fade]}
+        start={{ x: 0.4, y: 0.7 }}
+        style={[styles.button, style]}
       >
-        <LinearGradient
-          colors={[light.accent, light.fade]}
-          start={{ x: 0.4, y: 0.7 }}
-          style={[styles.button, style]}
-        >
-         {icon &&  <Ionicons name={icon} size={42} color={light.box} style={styles.icon} />}
-          <Text style={styles.buttonText}>{text}</Text>
-        </LinearGradient>
-      </TouchableOpacity>
+        {icon && <Ionicons name={icon} size={42} color={light.box} style={styles.icon} />}
+        {text && <Text style={styles.buttonText}>{text}</Text>}
+      </LinearGradient>
+    </TouchableOpacity>
     // </View>
   )
 }
@@ -34,18 +34,18 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     overflow: 'hidden',
   },
+  buttonText: {
+    fontWeight: 'bold',
+    fontSize: textScale(18),
+    textAlign: 'center',
+  },
   button: {
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'center',
-    
+
   },
-  buttonText: {
-    fontWeight: 'bold',
-    fontSize: textScale(23),
-    textAlign: 'center',
-  }
 });
 
 export default GradientButton

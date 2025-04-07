@@ -16,6 +16,11 @@ function CarDetailsScreen() {
             trans, seats, fuelConsumption } = route.params || { id: 1 }
     console.log("toimiiko", id, name)
 
+    const navigateToBooking = () => {
+      navigation.navigate('BookingScreen')
+      console.log('navgoid booking');
+    }
+
     return (
       <ScrollView>
         <SafeAreaView style={styles.container}>
@@ -97,7 +102,7 @@ function CarDetailsScreen() {
           <GradientButton
             text={"Book now"}
             style={styles.BookButton}
-            onPress ={() => navigation.navigate('BookingScreen')}
+            navigate = {navigateToBooking}
           />
           <Text style={styles.priceHeader}>Total price </Text>
           <Text style={styles.price}>{price}</Text>

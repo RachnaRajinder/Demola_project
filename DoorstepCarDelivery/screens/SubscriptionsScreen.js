@@ -263,13 +263,13 @@ function SubscriptionsScreen() {
                             <Text style={styles.headerP}>Details</Text>
                             <View style={styles.greyBoxP}>
                                 <Text style={styles.detailsTextP}>
-                                <Ionicons name={'car-sport-outline'} size={28} color={'black'}/>
+                                <Ionicons name={'car-sport-outline'} size={28} color={light.box}/>
                                     You can change car daily</Text>
                                 <Text style={styles.detailsTextP}>
-                                <Ionicons name={'construct-outline'} size={28} color={'black'}/>
+                                <Ionicons name={'construct-outline'} size={28} color={light.box}/>
                                     When changing your car you take it to a nearby Changy garage, or where ever you like</Text>
                                 <Text style={styles.detailsTextP}>
-                                <Ionicons name={'phone-portrait-outline'} size={28} color={'black'}/>
+                                <Ionicons name={'phone-portrait-outline'} size={28} color={light.box}/>
                                     you gain access to car control, parts customization, and infotainment customization</Text>
 
                             </View>

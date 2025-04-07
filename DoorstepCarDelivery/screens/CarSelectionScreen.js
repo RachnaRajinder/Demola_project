@@ -21,10 +21,10 @@ const DATA = [
     image: require("../assets/images/porsche-model-1.png"),
     rating: 5,
     price: "$100",
-    topSpeed:'308',
-    enginePower:'368',
-    acceleration:'3,4',
-    bodyType:'Roadster', 
+    topSpeed: '308',
+    enginePower: '368',
+    acceleration: '3,4',
+    bodyType: 'Roadster',
     numOfCylinders: 6,
     trans: 'automatic',
     seats: 2,
@@ -37,10 +37,10 @@ const DATA = [
     image: require("../assets/images/porsche-model-2.png"),
     rating: 4.5,
     price: "$120",
-    topSpeed:'296',
-    enginePower:'518',
-    acceleration:'3',
-    bodyType:'GT', 
+    topSpeed: '296',
+    enginePower: '518',
+    acceleration: '3',
+    bodyType: 'GT',
     numOfCylinders: 6,
     trans: 'automatic',
     seats: 2,
@@ -53,10 +53,10 @@ const DATA = [
     image: require("../assets/images/porsche-model-3.png"),
     rating: 4.5,
     price: "$120",
-    topSpeed:'312',
-    enginePower:'398',
-    acceleration:'3',
-    bodyType:'2 door coupé', 
+    topSpeed: '312',
+    enginePower: '398',
+    acceleration: '3',
+    bodyType: '2 door coupé',
     numOfCylinders: 6,
     trans: 'automatic',
     seats: 2,
@@ -69,14 +69,14 @@ const DATA = [
     image: require("../assets/images/porsche-model-4.png"),
     rating: 4.5,
     price: "$120",
-    topSpeed:'313',
-    enginePower:'375',
-    acceleration:'3,9',
-    bodyType:'GT',
+    topSpeed: '313',
+    enginePower: '375',
+    acceleration: '3,9',
+    bodyType: 'GT',
     numOfCylinders: 6,
     trans: 'automatic',
     seats: 2,
-    fuelConsumption: '12.7 l/100 km', 
+    fuelConsumption: '12.7 l/100 km',
   },
   {
     id: 5,
@@ -85,10 +85,10 @@ const DATA = [
     image: require("../assets/images/porsche-model-5.png"),
     rating: 4.5,
     price: "$120",
-    topSpeed:'240',
-    enginePower:'353',
-    acceleration:'3,4',
-    bodyType:'coupé', 
+    topSpeed: '240',
+    enginePower: '353',
+    acceleration: '3,4',
+    bodyType: 'coupé',
     numOfCylinders: 6,
     trans: 'automatic',
     seats: 2,
@@ -101,10 +101,10 @@ const DATA = [
     image: require("../assets/images/taycan_4_cross_turismo.png"),
     rating: 3.5,
     price: "$100",
-    topSpeed:'220',
-    enginePower:'320',
-    acceleration:'4,7',
-    bodyType:'Cross Turismo', 
+    topSpeed: '220',
+    enginePower: '320',
+    acceleration: '4,7',
+    bodyType: 'Cross Turismo',
     numOfCylinders: 0,
     trans: 'automatic',
     seats: 5,
@@ -117,10 +117,10 @@ const DATA = [
     image: require("../assets/images/porsche-macan.png"),
     rating: 3.5,
     price: "$100",
-    topSpeed:'232',
-    enginePower:'195',
-    acceleration:'6,2',
-    bodyType:'SUV', 
+    topSpeed: '232',
+    enginePower: '195',
+    acceleration: '6,2',
+    bodyType: 'SUV',
     numOfCylinders: 4,
     trans: 'automatic',
     seats: 5,
@@ -128,34 +128,45 @@ const DATA = [
   },
 ];
 const CarItem = ({ car }) => {
-    const navigation = useNavigation();
+  const navigation = useNavigation();
 
-    const NavigateToCarDetails = (
-      id, name, fueltype, image, rating, price, 
-      topSpeed, enginePower, acceleration, bodyType, 
-      numOfCylinders, trans, seats, fuelConsumption) => {
-        navigation.navigate('Car details', {
-          car:car, id:id, name:name, fueltype:fueltype, image:image, 
-          rating:rating, price:price, topSpeed:topSpeed, enginePower:enginePower, 
-          acceleration:acceleration, bodyType:bodyType, numOfCylinders:numOfCylinders, 
-          trans:trans, seats:seats, fuelConsumption:fuelConsumption})
-        console.log("toimiii", id)
-    }
+  const NavigateToCarDetails = (
+    id, name, fueltype, image, rating, price,
+    topSpeed, enginePower, acceleration, bodyType,
+    numOfCylinders, trans, seats, fuelConsumption) => {
+    navigation.navigate('Car details', {
+      car: car, id: id, name: name, fueltype: fueltype, image: image,
+      rating: rating, price: price, topSpeed: topSpeed, enginePower: enginePower,
+      acceleration: acceleration, bodyType: bodyType, numOfCylinders: numOfCylinders,
+      trans: trans, seats: seats, fuelConsumption: fuelConsumption
+    })
+    console.log("toimiii", id)
+  }
 
   return (
-    <TouchableOpacity onPress ={() => NavigateToCarDetails(car.id, car.name, car.fueltype, car.image, car.rating, car.price, car.topSpeed, car.enginePower, car.acceleration, car.bodyType, car.numOfCylinders, car.trans, car.seats, car.fuelConsumption)}>
-    <View style={styles.carBox}>
-      <Image
-        style={styles.image}
-        source={car.image}
-        resizeMode="cover" // This keeps the aspect ratio and fills the box
-      />
-      <Text style={styles.carName}>{car.name}</Text>
-      <Text style={styles.fueltype}>FuelType: {car.fueltype}</Text>
-      <Text style={styles.rating}>Rating: {car.rating} ⭐⭐⭐⭐⭐</Text>
-      <Text style={styles.price}>Price: {car.price}</Text>
+    <TouchableOpacity onPress={() => NavigateToCarDetails(car.id, car.name, car.fueltype, car.image, car.rating, car.price, car.topSpeed, car.enginePower, car.acceleration, car.bodyType, car.numOfCylinders, car.trans, car.seats, car.fuelConsumption)}>
 
-    </View>
+      <View style={styles.carBox}>
+        <Image
+          style={styles.image}
+          source={car.image}
+          resizeMode="cover" // This keeps the aspect ratio and fills the box
+        />
+        <View style={{flex:1, flexDirection: 'row',marginTop: 10,
+        }}>
+          <View>
+            <Text style={styles.carName}>{car.name}</Text>
+            <Text style={styles.fueltype}>FuelType: {car.fueltype}</Text>
+            <Text style={styles.rating}>Rating: {car.rating} ⭐⭐⭐⭐⭐</Text>
+            <Text style={styles.price}>Price: {car.price}</Text>
+          </View>
+          <View>
+            {/* <Text>kuva</Text> */}
+            <Image resizeMode='cover' style={styles.imageStats} source={require('../assets/images/stats2.png')} />
+          </View>
+        </View>
+
+      </View>
     </TouchableOpacity>
   );
 };
@@ -185,14 +196,26 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   carBox: {
+    flex:1,
     backgroundColor: "#F3F3F4",
     borderRadius: 10,
     padding: 15,
     marginBottom: 10,
+    flexDirection: 'column',
+
   },
   image: {
-    height: 150,
+    height: 170,
     width: "100%",
+  },
+  imageStats: {
+    flex: 3,
+    height:0,
+    width: '207',
+    marginLeft: 90,
+    marginTop: 5,
+    alignItems: 'center',
+    
   },
   carName: {
     fontWeight: "bold",

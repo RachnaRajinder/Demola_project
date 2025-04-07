@@ -28,27 +28,32 @@ function HomeScreen() {
             image: require("../assets/images/porsche-model-1.png"),
             rating: 5,
             price: "$100",
-            topSpeed:'308',
-            enginePower:'368',
-            acceleration:'3,4',
-            bodyType:'Roadster', 
+            topSpeed: '308',
+            enginePower: '368',
+            acceleration: '3,4',
+            bodyType: 'Roadster',
             numOfCylinders: 6,
             trans: 'automatic',
             seats: 2,
-            fuelConsumption: '12.7 l/100 km',})
+            fuelConsumption: '12.7 l/100 km',
+        })
     }
     const navigateToCarControl = () => {
         // navigation.navigate('CarControl')
         Alert.alert('Navigating', 'to car control screen')
         console.log(height, width);
     }
-    const navigateToUserSettings = () => {
-        // navigation.navigate('UserSettings')
-        Alert.alert('Navigating', 'to user settings screen')
+    const navigateToProfileSettings = () => {
+        // navigation.navigate('ProfileSettings')
+        Alert.alert('Navigating', 'to profile settings screen')
     }
     const navigateToMembership = () => {
         // navigation.navigate('Membership')
         Alert.alert('Navigating', 'to membership screen')
+    }
+    const addNewProfile = () => {
+        // navigation.navigate('open modal')
+        Alert.alert('Add or Connect', 'Add New profile or Connect to a new car')
     }
 
     const hideModal = () => {
@@ -64,8 +69,18 @@ function HomeScreen() {
         <SafeAreaView style={styles.container}>
             <StatusBar backgroundColor='#fcc951'></StatusBar>
             <View style={[styles.box, styles.elevation]}>
-                <View style={{ flex: .5 }}>
-                    <Text style={styles.header} numberOfLines={1} adjustsFontSizeToFit>Porshce 718</Text>
+                <View style={{ flex: .6, width: '95%', flexDirection: 'row', alignItems: 'center', }}>
+                            <TouchableOpacity style={[styles.buttonChange,{zIndex:999}]}>
+                        <GradientButton
+                            text={''}
+                            navigate={addNewProfile}
+                            icon='add-circle-outline'
+                            style={[styles.buttonChange]} />
+                            </TouchableOpacity>
+
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginRight: scale(50) }}>
+                        <Text style={styles.header} numberOfLines={1} adjustsFontSizeToFit>Porshce 718</Text>
+                    </View>
                 </View>
                 <View style={{ flex: 1.2, width: '100%', height: '100%', justifyContent: 'center', alignItems: 'center' }}>
                     <Image resizeMode='contain' style={styles.image} source={require('../assets/images/porsche-model-1.png')} />
@@ -123,7 +138,6 @@ function HomeScreen() {
                             >
                                 <Pressable onPress={() => setModalVisible(true)}>
                                     <View style={styles.boxContent}>
-                                        {/* Add your content inside the box */}
                                     </View>
                                     <Text style={styles.infoText}>{profile}</Text>
                                     <Text style={styles.infoHeader}>Change Profile</Text>
@@ -150,7 +164,7 @@ function HomeScreen() {
 
 
                     <View style={styles.buttonElevation}>
-                        <GradientButton text={'User Settings'} navigate={navigateToUserSettings} style={styles.button} icon='settings-outline' />
+                        <GradientButton text={'Profile Settings'} navigate={navigateToProfileSettings} style={styles.button} icon='settings-outline' />
                     </View>
                     <View style={styles.buttonElevation}>
                         <GradientButton text={'Manage Membership'} navigate={navigateToMembership} style={styles.button} icon='at-outline' />
@@ -318,6 +332,16 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    buttonChange: {
+        width: scale(60),
+        height: verticalScale(60),
+        shadowColor: 'black',
+        shadowOffset: { width: -2, height: 4 },
+        shadowOpacity: .2,
+        shadowRadius: 15,
+        // elevation: 5,
+        borderRadius: 10,
     },
 
 

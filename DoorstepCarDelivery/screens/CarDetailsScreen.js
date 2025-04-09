@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, StatusBar, Text, Image, ScrollView, Button, TouchableOpacity, Alert } from 'react-native';
+import { StyleSheet, View, StatusBar, Text, Image, ScrollView } from 'react-native';
 import { light, dark } from "../assets/colors/colors"
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRoute } from '@react-navigation/native';
@@ -99,13 +99,13 @@ function CarDetailsScreen() {
             </View>
           </View>
 
-          <GradientButton
-            text={"Book now"}
-            style={styles.BookButton}
-            navigate = {navigateToBooking}
-          />
-          <Text style={styles.priceHeader}>Total price </Text>
-          <Text style={styles.price}>{price}</Text>
+          <View style={styles.booking}>
+                <View>
+                <Text style={styles.priceHeader}>Total price: </Text>
+                <Text style={styles.price}>{price}</Text>
+                </View>
+                <GradientButton text={'Book now'} style={styles.BookButton} navigate = {navigateToBooking}/>
+            </View>
         </SafeAreaView>
       </ScrollView>
     );
@@ -183,15 +183,8 @@ const styles = StyleSheet.create({
         marginRight: 14, 
         fontWeight: 'bold',
         textAlign: 'center',
-        paddingVertical: 12,
+        paddingVertical: '12%',
         paddingHorizontal: 32,
-        fontWeight: 'bold',
-    },
-    ButtonText: {
-        textAlign: 'center',
-        padding: 8,
-        fontWeight: 'bold',
-        fontSize: 18,
     },
     bodyType: {
         textAlign: 'center',

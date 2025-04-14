@@ -13,7 +13,7 @@ const moderateScaleVertical = (size, factor = 0.5) => size + (verticalScale(size
 const textScale = percent => {
     const screenHeight = Dimensions.get('window').height;
     const ratio = Dimensions.get('window').height / Dimensions.get('window').width;
-    const deviceHeight = guidelineBaseWidth
+    const deviceHeight = guidelineBaseHeight
         ? screenHeight * (ratio > 1.8 ? 0.126 : 0.15)
         : Platform.OS === 'android'
         ? screenHeight - StatusBar.currentHeight

@@ -39,9 +39,7 @@ function HomeScreen() {
         })
     }
     const navigateToCarControl = () => {
-        // navigation.navigate('CarControl')
-        Alert.alert('Navigating', 'to car control screen')
-        console.log(height, width);
+        navigation.navigate('Car Control')
     }
     const navigateToProfileSettings = () => {
         // navigation.navigate('ProfileSettings')
@@ -70,17 +68,17 @@ function HomeScreen() {
             <StatusBar backgroundColor='#fcc951'></StatusBar>
             <View style={[styles.box, styles.elevation]}>
                 <View style={{ flex: .6, width: '95%', flexDirection: 'row', alignItems: 'center', }}>
-                            <TouchableOpacity style={[styles.buttonChange,{zIndex:999}]}>
+                    <TouchableOpacity style={[styles.buttonChange, { zIndex: 999 }]}>
                         <GradientButton
                             text={''}
                             navigate={addNewProfile}
                             icon='add-circle-outline'
                             style={[styles.buttonChange]}
-                             />
-                            </TouchableOpacity>
+                        />
+                    </TouchableOpacity>
 
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginRight: scale(50) }}>
-                        <Text style={styles.header} numberOfLines={1} adjustsFontSizeToFit>Porshce 718</Text>
+                        <Text style={styles.header}>Porshce 718</Text>
                     </View>
                 </View>
                 <View style={{ flex: 1.2, width: '100%', height: '100%', justifyContent: 'center', alignItems: 'center' }}>
@@ -231,7 +229,7 @@ const styles = StyleSheet.create({
     header: {
         marginTop: scale(10),
         fontWeight: 'bold',
-        fontSize: 40,
+        fontSize: textScale(30),
         textAlign: 'center',
         height: scale(50),
     },
@@ -284,7 +282,7 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
         fontSize: 25,
-        
+
     },
     buttonModal: {
         padding: '5%',
@@ -347,7 +345,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         justifyContent: 'center',
         alignItems: 'center',
-        
+
     },
 
 

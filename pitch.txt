@@ -35,8 +35,7 @@ Auto toimitetaan kotiovelle tai voit k채yd채 katsomassa vapaita autoja paikan p�
 
 Sovellukseen kuuluu auton hallinta, auton vaihto, opastusvideot
 
-Liisatessa auton valinta katsotaan valmiiksi tarkkaan valittas valmiiksi hyv채ksi.
-Auton vaihtoon miettimist채, omat tavarat vaihtoon, avaimet jne.
+Auton vaihtoon miettimist채, omat tavarat vaihtoon, avaimet jne.Liisatessa auton valinta katsotaan valmiiksi tarkkaan valittas valmiiksi hyv채ksi.
 Avaimissa oma profiili ehk채.
 
 Do users appreciate the value of changing car and do we have enough customers for our concept.

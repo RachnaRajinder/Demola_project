@@ -42,8 +42,9 @@ function HomeScreen() {
         navigation.navigate('Car Control')
     }
     const navigateToProfileSettings = () => {
-        // navigation.navigate('ProfileSettings')
-        Alert.alert('Navigating', 'to profile settings screen')
+        navigation.navigate('Profile Settings', {
+            name1,
+        })
     }
     const navigateToMembership = () => {
         // navigation.navigate('Membership')

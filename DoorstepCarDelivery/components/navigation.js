@@ -6,6 +6,7 @@ import CarDetailsScreen from '../screens/CarDetailsScreen';
 import CarSelectionScreen from '../screens/CarSelectionScreen';
 import SubscriptionsScreen from '../screens/SubscriptionsScreen';
 import CarControlScreen from '../screens/CarControlScreen';
+import ProfileSettings from '@/screens/ProfileSettings';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { light, dark } from "../assets/colors/colors"
@@ -17,6 +18,7 @@ const carSelection = 'Car selection';
 const subscriptions = 'Subscriptions';
 const bookingScreen = 'BookingScreen'
 const carControl = 'Car Control'
+const profileSettings = 'Profile Settings'
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -75,6 +77,7 @@ export default function Navigation() {
       <Stack.Screen name={carDetails} component={CarDetailsScreen} />
       <Stack.Screen name={bookingScreen} component={BookingScreen} />
       <Stack.Screen name={carControl} component={CarControlScreen} />
+      <Stack.Screen name={profileSettings} component={ProfileSettings} />
 
     </Stack.Navigator>
   )

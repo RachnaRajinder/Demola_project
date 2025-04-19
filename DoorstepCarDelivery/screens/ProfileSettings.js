@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Image, Text, Switch, StatusBar, Button, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
+import { StyleSheet, View, Image, Text, Switch, StatusBar, Button, TouchableOpacity, Dimensions, ScrollView, TextInput } from 'react-native';
 import { light, dark } from "../assets/colors/colors"
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
@@ -17,27 +17,73 @@ const ProfileSettings = () =>{
     const [Maps, setMaps] = useState(false)
     const [Messages, setMessages] = useState(false)
     const [Calls, setCalls] = useState(false)
-    const { name1 } = route.params || { id: 1 }
+    const { name1, name2, lastName, Age, Address, Email, Password } = route.params || { id: 1 }
+    const [name, onChangeName] = React.useState(name1);
+    const [Lname, onChangeLname] = React.useState(lastName);
+    const [age, onChangeAge] = React.useState(Age);
+    const [address, onChangeAddress] = React.useState(Address);
+    const [email, onChangeEmail] = React.useState(Email);
+    const [pass, onChangePass] = React.useState(Password);
+
     
     return(
         <ScrollView>
         <SafeAreaView style={styles.container}>
-            <View style={styles.box}>
-                <Text style={styles.heading}> {name1} </Text>
-                <Text> user info, names, age, address, email,</Text>
-                
+            
+                <View style={styles.box}>
+                    <Text style={styles.heading}> {name1} {lastName} </Text>
+                    <Text style={styles.infoHeading}> First name</Text>
+                    <TextInput 
+                    style={styles.TextInput}
+                    onChangeText={onChangeName}
+                    value={name}
+                    
+                    />
+                    <Text style={styles.infoHeading}> Last name</Text>
+                    <TextInput 
+                    style={styles.TextInput}
+                    onChangeText={onChangeLname}
+                    value={Lname}
+                    />
+                    <Text style={styles.infoHeading}> Password</Text>
+                    <TextInput 
+                    style={styles.TextInput}
+                    onChangeText={onChangePass}
+                    value={pass}
+                    secureTextEntry
+                    />
+                    <Text style={styles.infoHeading}> Age</Text>
+                    <TextInput 
+                    style={styles.TextInput}
+                    onChangeText={onChangeAge}
+                    value={age}
+                    />
+                    <Text style={styles.infoHeading}> Address</Text>
+                    <TextInput 
+                    style={styles.TextInput}
+                    onChangeText={onChangeAddress}
+                    value={address}
+                    />
+                    <Text style={styles.infoHeading}> Email</Text>
+                    <TextInput 
+                    style={styles.TextInput}
+                    onChangeText={onChangeEmail}
+                    value={email}
+                    />
+                </View>
+
+                <View style={styles.box}>
                 <Text> Connected apps </Text>
-                <CustomSwitch label={Spotify? 'Spotify connected' : 'Spotify not connected'} value={Spotify} onToggle={setSpotify}/>
-                <CustomSwitch label={YT? 'YouTube connected' : 'YouTube not connected'} value={YT} onToggle={setYT}/>
-                <CustomSwitch label={Maps? 'Maps connected' : 'Maps not connected'} value={Maps} onToggle={setMaps}/>
-                <CustomSwitch label={Messages? 'Messages connected' : 'Messages not connected'} value={Messages} onToggle={setMessages}/>
-                <CustomSwitch label={Calls? 'Calls connected' : 'Calls not connected'} value={Calls} onToggle={setCalls}/>
+                    <CustomSwitch label={Spotify? 'Spotify connected' : 'Spotify not connected'} value={Spotify} onToggle={setSpotify}/>
+                    <CustomSwitch label={YT? 'YouTube connected' : 'YouTube not connected'} value={YT} onToggle={setYT}/>
+                    <CustomSwitch label={Maps? 'Maps connected' : 'Maps not connected'} value={Maps} onToggle={setMaps}/>
+                    <CustomSwitch label={Messages? 'Messages connected' : 'Messages not connected'} value={Messages} onToggle={setMessages}/>
+                    <CustomSwitch label={Calls? 'Calls connected' : 'Calls not connected'} value={Calls} onToggle={setCalls}/>
+                </View>
 
                 <Text> payment methods </Text>
-                <Text> km's driven</Text>
-                <Text> password </Text>
                 <Text> location </Text>
-            </View>
+            
         </SafeAreaView>
         </ScrollView>
     )
@@ -70,22 +116,33 @@ const styles=StyleSheet.create({
         backgroundColor: light.box,
         fontWeight: 'bold',
         paddingHorizontal: '8%',
+        paddingVertical: '5%'
 
     },
     controlRow: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'flex-start',
-        paddingVertical: 12,
+        paddingTop: 12,
+        paddingBottom: 2,
         borderBottomColor: light.background,
         borderBottomWidth: 3,
         
     },
     label: {
-        fontSize: 18,
+        fontSize: 16,
         fontWeight: '500',
         textAlign: 'left',
     },
+    infoHeading: {
+        color: '#9a9897',
+        paddingTop: '8%',
+    },
+    TextInput: {
+        height: 40,
+        borderBottomWidth: 3,
+        borderBottomColor: light.background ,
+      },
 })
 
 export default ProfileSettings;

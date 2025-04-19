@@ -15,6 +15,11 @@ const { width, height } = Dimensions.get('window')
 function HomeScreen() {
     const { width, height } = Dimensions.get('window')
     const name1 = 'Hannu'
+    const lastName = 'Luhtasela'
+    const Age = '45'
+    const Address = 'Mainroad 123 A'
+    const Email = 'spurdo.sparde@gmail.com'
+    const Password = 'password'
     const name2 = 'Julie'
     const navigation = useNavigation();
     const [profile, setProfile] = useState(name1);
@@ -43,7 +48,7 @@ function HomeScreen() {
     }
     const navigateToProfileSettings = () => {
         navigation.navigate('Profile Settings', {
-            name1,
+            name1, name2, lastName, Age, Address, Email, Password
         })
     }
     const navigateToMembership = () => {

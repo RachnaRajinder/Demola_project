@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Image, Text, Switch, StatusBar, Button, TouchableOpacity, Dimensions, ScrollView, TextInput } from 'react-native';
+import { StyleSheet, View, Image, Text, Pressable, Switch, StatusBar, Button, TouchableOpacity, Dimensions, ScrollView, TextInput, Modal } from 'react-native';
 import { light, dark } from "../assets/colors/colors"
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
@@ -24,7 +24,21 @@ const ProfileSettings = () =>{
     const [address, onChangeAddress] = React.useState(Address);
     const [email, onChangeEmail] = React.useState(Email);
     const [pass, onChangePass] = React.useState(Password);
+    const [modalVisible, setModalVisible] = useState(false);
+    const Paym1 = 'Card'
+    const Paym2 = 'Paypal'
+    const Paym3 = 'Bank'
+    const Paym4 = 'MobilePay'
+    const [paymentMethod, setPaymentMethod] = useState(Paym1);
 
+    const hideModal = () => {
+        setModalVisible(!modalVisible)
+    }
+
+    const handlePaymentChange = (name) => {
+        setPaymentMethod(name);
+        hideModal();
+    };
     
     return(
         <ScrollView>
@@ -81,7 +95,46 @@ const ProfileSettings = () =>{
                     <CustomSwitch label={Calls? 'Calls connected' : 'Calls not connected'} value={Calls} onToggle={setCalls}/>
                 </View>
 
-                <Text> payment methods </Text>
+                <Text style={styles.heading}> payment methods </Text>
+                <Modal
+                    animationType="fade"
+                    transparent={true}
+                    visible={modalVisible}
+                    onRequestClose={() => {
+                        setModalVisible(!modalVisible);
+                    }}>
+                    <View style={styles.modalView}>
+                        <View style={[styles.modal, styles.elevation]}>
+
+                            <Text style={styles.headerModal}>Current: {paymentMethod}</Text>
+
+                            <View style={styles.profileChoices}>
+                                <TouchableOpacity onPress={() => handlePaymentChange(Paym1)}>
+                                    <Text style={styles.choiceText}>{Paym1}</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity onPress={() => handlePaymentChange(Paym2)}>
+                                    <Text style={styles.choiceText}>{Paym2}</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity onPress={() => handlePaymentChange(Paym3)}>
+                                    <Text style={styles.choiceText}>{Paym3}</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity onPress={() => handlePaymentChange(Paym4)}>
+                                    <Text style={styles.choiceText}>{Paym4}</Text>
+                                </TouchableOpacity>
+                            </View>
+                            <View style={styles.buttonElevationModal}>
+                                <GradientButton text="Close" navigate={hideModal} style={styles.buttonModal} />
+                            </View>
+                        </View>
+                    </View>
+                </Modal>
+
+                    <Pressable onPress={() => setModalVisible(true)}>
+                        <View style={styles.boxContent}>
+                        </View>
+                        <Text style={styles.infoText}>{paymentMethod}</Text>
+                        <Text style={styles.infoHeader}>Change payment method</Text>
+                    </Pressable>
                 <Text> location </Text>
             
         </SafeAreaView>
@@ -127,7 +180,6 @@ const styles=StyleSheet.create({
         paddingBottom: 2,
         borderBottomColor: light.background,
         borderBottomWidth: 3,
-        
     },
     label: {
         fontSize: 16,
@@ -143,6 +195,65 @@ const styles=StyleSheet.create({
         borderBottomWidth: 3,
         borderBottomColor: light.background ,
       },
+    profileChoices: {
+        marginBottom: '16%',
+    },
+    modalView: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    modal: {
+        backgroundColor: light.box,
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '50%',
+        width: scale(300),
+        borderRadius: 10,
+    },
+    modalButton: {
+        height: verticalScale(50),
+        width: scale(50),
+    },
+    buttonModal: {
+        padding: '10%',
+        width: '90%',
+        height: '50%',
+    },
+    headerModal: {
+        marginTop: scale(10),
+        fontWeight: 'bold',
+        fontSize: textScale(25),
+        textAlign: 'center',
+        height: scale(50),
+    },
+    elevation: {
+        shadowColor: 'black',
+        shadowOffset: { width: -2, height: 4 },
+        shadowOpacity: .25,
+        shadowRadius: 5,
+        elevation: 7,
+    },
+    choiceText: {
+        marginTop: verticalScale(10),
+        fontSize: textScale(20),
+        marginBottom: verticalScale(10),
+        textAlign: 'center',
+    },
+    infoText: {
+        textAlign: 'center',
+        textAlignVertical: 'center',
+        fontWeight: 'bold',
+        fontSize: textScale(20)
+    },
+    infoHeader: {
+        flexWrap: 'wrap',
+        color: '#9a9897',
+        textAlign: 'center',
+        paddingBottom: scale(10),
+        fontSize: textScale(18),
+
+    },
 })
 
 export default ProfileSettings;

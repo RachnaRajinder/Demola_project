@@ -7,7 +7,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import GradientButton from '@/components/GradientButton';
 import { useRoute } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { scale, textScale, verticalScale } from '@/components/ScreenScaling';
+import { scale, textScale, verticalScale, moderateScale } from '@/components/ScreenScaling';
 
 const ProfileSettings = () =>{
 
@@ -27,7 +27,7 @@ const ProfileSettings = () =>{
     const [modalVisible, setModalVisible] = useState(false);
     const Paym1 = 'Card'
     const Paym2 = 'Paypal'
-    const Paym3 = 'Bank'
+    const Paym3 = 'Online Bank'
     const Paym4 = 'MobilePay'
     const [paymentMethod, setPaymentMethod] = useState(Paym1);
 
@@ -86,14 +86,7 @@ const ProfileSettings = () =>{
                     />
                 </View>
 
-                <View style={styles.box}>
-                <Text> Connected apps </Text>
-                    <CustomSwitch label={Spotify? 'Spotify connected' : 'Spotify not connected'} value={Spotify} onToggle={setSpotify}/>
-                    <CustomSwitch label={YT? 'YouTube connected' : 'YouTube not connected'} value={YT} onToggle={setYT}/>
-                    <CustomSwitch label={Maps? 'Maps connected' : 'Maps not connected'} value={Maps} onToggle={setMaps}/>
-                    <CustomSwitch label={Messages? 'Messages connected' : 'Messages not connected'} value={Messages} onToggle={setMessages}/>
-                    <CustomSwitch label={Calls? 'Calls connected' : 'Calls not connected'} value={Calls} onToggle={setCalls}/>
-                </View>
+               
 
                 <Text style={styles.heading}> payment methods </Text>
                 <Modal
@@ -135,8 +128,14 @@ const ProfileSettings = () =>{
                         <Text style={styles.infoText}>{paymentMethod}</Text>
                         <Text style={styles.infoHeader}>Change payment method</Text>
                     </Pressable>
-                <Text> location </Text>
-            
+             <View style={styles.box}>
+                <Text> Connected apps </Text>
+                    <CustomSwitch label={Spotify? 'Spotify connected' : 'Spotify not connected'} value={Spotify} onToggle={setSpotify}/>
+                    <CustomSwitch label={YT? 'YouTube connected' : 'YouTube not connected'} value={YT} onToggle={setYT}/>
+                    <CustomSwitch label={Maps? 'Maps connected' : 'Maps not connected'} value={Maps} onToggle={setMaps}/>
+                    <CustomSwitch label={Messages? 'Messages connected' : 'Messages not connected'} value={Messages} onToggle={setMessages}/>
+                    <CustomSwitch label={Calls? 'Calls connected' : 'Calls not connected'} value={Calls} onToggle={setCalls}/>
+                </View>
         </SafeAreaView>
         </ScrollView>
     )
@@ -216,9 +215,9 @@ const styles=StyleSheet.create({
         width: scale(50),
     },
     buttonModal: {
-        padding: '10%',
-        width: '90%',
-        height: '50%',
+        padding: '5%',
+        width: '100%',
+        height: '100%',
     },
     headerModal: {
         marginTop: scale(10),
@@ -235,10 +234,11 @@ const styles=StyleSheet.create({
         elevation: 7,
     },
     choiceText: {
-        marginTop: verticalScale(10),
         fontSize: textScale(20),
-        marginBottom: verticalScale(10),
+        marginVertical: verticalScale(10),
         textAlign: 'center',
+        borderBottomWidth: 3,
+        borderBottomColor: light.background
     },
     infoText: {
         textAlign: 'center',
@@ -252,7 +252,19 @@ const styles=StyleSheet.create({
         textAlign: 'center',
         paddingBottom: scale(10),
         fontSize: textScale(18),
-
+    },
+    buttonElevationModal: {
+        marginTop: verticalScale(20),
+        width: scale(195),
+        height: verticalScale(50),
+        shadowColor: 'black',
+        shadowOffset: { width: -2, height: 4 },
+        shadowOpacity: .2,
+        shadowRadius: 15,
+        elevation: 5,
+        borderRadius: 10,
+        marginHorizontal: moderateScale(10),
+        backgroundColor: 'white',
     },
 })
 

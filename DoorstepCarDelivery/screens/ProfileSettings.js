@@ -47,11 +47,6 @@ const ProfileSettings = () =>{
 
         setIsActive(prev => !prev);
     };
-
-    const activePaym = () => {
-
-        
-    }
     
     return(
         <ScrollView>
@@ -121,13 +116,19 @@ const ProfileSettings = () =>{
                                     },]} >{Paym1}</Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity onPress={() => handlePaymentChange(Paym2)}>
-                                    <Text style={ActiveColor}>{Paym2}</Text>
+                                    <Text style={[styles.choiceTextInactive, {
+                                    borderColor: isActive ? light.accent : light.background,
+                                    },]}>{Paym2}</Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity onPress={() => handlePaymentChange(Paym3)}>
-                                    <Text style={ActiveColor}>{Paym3}</Text>
+                                    <Text style={[styles.choiceTextInactive, {
+                                    borderColor: isActive ? light.accent : light.background,
+                                    },]}>{Paym3}</Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity onPress={() => handlePaymentChange(Paym4)}>
-                                    <Text style={ActiveColor}>{Paym4}</Text>
+                                    <Text style={[styles.choiceTextInactive, {
+                                    borderColor: isActive ? light.accent : light.background,
+                                    },]}>{Paym4}</Text>
                                 </TouchableOpacity>
                             </View>
                             <View style={styles.buttonElevationModal}>

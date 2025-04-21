@@ -42,8 +42,6 @@ const ProfileSettings = () =>{
 
         setPaymentMethod(name);
         hideModal();        
-        if(ActiveColor !== styles.choiceText) setActiveColor(styles.choiceText);
-            else setActiveColor(styles.choiceText);
 
         setIsActive(prev => !prev);
     };
@@ -96,7 +94,7 @@ const ProfileSettings = () =>{
 
                
 
-                <Text style={styles.heading}> Payment methods </Text>
+                <Text style={styles.heading}>  Current payment method </Text>
                 <Modal
                     animationType="slide"
                     transparent={true}
@@ -196,7 +194,7 @@ const styles=StyleSheet.create({
         alignItems: 'flex-start',
         paddingTop: 12,
         paddingBottom: 2,
-        borderBottomColor: light.background,
+        borderBottomColor: light.accent,
         borderBottomWidth: 3,
     },
     label: {
@@ -211,7 +209,7 @@ const styles=StyleSheet.create({
     TextInput: {
         height: 40,
         borderBottomWidth: 3,
-        borderBottomColor: light.background ,
+        borderBottomColor: light.accent,
       },
     profileChoices: {
         marginBottom: '16%',

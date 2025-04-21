@@ -30,15 +30,28 @@ const ProfileSettings = () =>{
     const Paym3 = 'Online Bank'
     const Paym4 = 'MobilePay'
     const [paymentMethod, setPaymentMethod] = useState(Paym1);
-
+    const [ActiveColor, setActiveColor] = useState(styles.choiceTextInactive)
+    const [isActive, setIsActive] = useState(false);
+    
     const hideModal = () => {
         setModalVisible(!modalVisible)
     }
 
     const handlePaymentChange = (name) => {
+        
+
         setPaymentMethod(name);
-        hideModal();
+        hideModal();        
+        if(ActiveColor !== styles.choiceText) setActiveColor(styles.choiceText);
+            else setActiveColor(styles.choiceText);
+
+        setIsActive(prev => !prev);
     };
+
+    const activePaym = () => {
+
+        
+    }
     
     return(
         <ScrollView>
@@ -88,9 +101,9 @@ const ProfileSettings = () =>{
 
                
 
-                <Text style={styles.heading}> payment methods </Text>
+                <Text style={styles.heading}> Payment methods </Text>
                 <Modal
-                    animationType="fade"
+                    animationType="slide"
                     transparent={true}
                     visible={modalVisible}
                     onRequestClose={() => {
@@ -103,16 +116,18 @@ const ProfileSettings = () =>{
 
                             <View style={styles.profileChoices}>
                                 <TouchableOpacity onPress={() => handlePaymentChange(Paym1)}>
-                                    <Text style={styles.choiceText}>{Paym1}</Text>
+                                    <Text style={[styles.choiceTextInactive, {
+                                    borderColor: isActive ? light.accent : light.background,
+                                    },]} >{Paym1}</Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity onPress={() => handlePaymentChange(Paym2)}>
-                                    <Text style={styles.choiceText}>{Paym2}</Text>
+                                    <Text style={ActiveColor}>{Paym2}</Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity onPress={() => handlePaymentChange(Paym3)}>
-                                    <Text style={styles.choiceText}>{Paym3}</Text>
+                                    <Text style={ActiveColor}>{Paym3}</Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity onPress={() => handlePaymentChange(Paym4)}>
-                                    <Text style={styles.choiceText}>{Paym4}</Text>
+                                    <Text style={ActiveColor}>{Paym4}</Text>
                                 </TouchableOpacity>
                             </View>
                             <View style={styles.buttonElevationModal}>
@@ -159,16 +174,19 @@ const styles=StyleSheet.create({
         backgroundColor: light.box,
     },
     heading: {
-        textAlign: 'left',
+        textAlign: 'center',
         fontSize: 24,
         fontWeight: 'bold',
+        borderLeftColor: light.accent,
+        borderLeftWidth: 2,
+        paddingBottom: '4%'
     },
     box: {
         flexDirection: 'column',
         backgroundColor: light.box,
         fontWeight: 'bold',
         paddingHorizontal: '8%',
-        paddingVertical: '5%'
+        paddingVertical: '10%'
 
     },
     controlRow: {
@@ -238,13 +256,19 @@ const styles=StyleSheet.create({
         marginVertical: verticalScale(10),
         textAlign: 'center',
         borderBottomWidth: 3,
-        borderBottomColor: light.background
+    },
+    choiceTextInactive: {
+        fontSize: textScale(20),
+        marginVertical: verticalScale(10),
+        textAlign: 'center',
+        borderBottomWidth: 3,
     },
     infoText: {
         textAlign: 'center',
         textAlignVertical: 'center',
         fontWeight: 'bold',
-        fontSize: textScale(20)
+        fontSize: textScale(20),
+        
     },
     infoHeader: {
         flexWrap: 'wrap',

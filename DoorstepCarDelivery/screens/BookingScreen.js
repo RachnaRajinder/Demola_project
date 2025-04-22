@@ -1,39 +1,38 @@
-import { Modal, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, View, Text, Button } from "react-native";
 import { useState } from "react";
 import { Calendar } from "react-native-calendars";
-import { width } from "@/components/ScreenScaling";
 
 const BookingScreen = () => {
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [displayedDate, setDisplayedDate] = useState("");
+
+  const handleDayPress = (day) => {
+    setSelectedDate(day.dateString);
+    setDisplayedDate(day.dateString); // Display the selected date
+  };
+
+  const handleConfirm = () => {
+    alert(`You have selected: ${displayedDate}`); 
+  };
+
   return (
     <View style={styles.container}>
-
-        <Calendar
-          // Customize the appearance of the calendar
-          style={{
-            borderWidth: 1,
-            borderColor: "gray",
-            height: 350,
-            width: 350,
-          }}
-          current={"2023-03-01"}
-          // Callback that gets called when the user selects a day
-          onDayPress={(day) => {
-            console.log("selected day", day);
-          }}
-          markedDates={{
-            "2023-03-01": {
-              selected: true,
-              marked: true,
-              selectedColor: "blue",
-            },
-            "2023-03-02": { marked: true },
-            "2023-03-03": {
-              selected: true,
-              marked: true,
-              selectedColor: "blue",
-            },
-          }}
-        />
+      <Calendar
+        style={{
+          borderWidth: 1,
+          borderColor: "gray",
+          height: 350,
+          width: 350,
+        }}
+        current={"2025-04-01"}
+        onDayPress={handleDayPress}
+      />
+      {selectedDate && (
+        <View style={styles.dateBox}>
+          <Text style={styles.dateText}>Selected Date: {displayedDate}</Text>
+          <Button title="Confirm Booking" onPress={handleConfirm} />
+        </View>
+      )}
     </View>
   );
 };
@@ -45,37 +44,18 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  centeredView: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  modalView: {
-    margin: 50,
+  dateBox: {
+    marginTop: 20,
+    padding: 20,
+    borderWidth: 1,
+    borderColor: "gray",
     backgroundColor: "white",
-    borderRadius: 20,
-    padding: 35,
+    borderRadius: 5,
     alignItems: "center",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
   },
-  button: {
-    borderRadius: 10,
-    padding: 10,
-    elevation: 2,
-    backgroundColor: "blue",
-    marginTop: 10,
-  },
-  textStyle: {
-    color: "white",
-    fontWeight: "bold",
-    textAlign: "center",
+  dateText: {
+    fontSize: 16,
+    marginBottom: 10,
   },
 });
 

@@ -307,7 +307,7 @@ function SubscriptionsScreen() {
                     <Text style={styles.priceM}>4000€</Text>
                     
                     <Text style={styles.previewTextP}>
-                    <Ionicons name={'car-sport-outline'} size={28} color={'white'}/>
+                    <Ionicons name={'car-sport-outline'} size={28} color={'white'} style={styles.icon}/>
                     Change car daily</Text>
                     <Text style={styles.previewTextP}>
                     <Ionicons name={'construct-outline'} size={28} color={'white'}/>
@@ -344,6 +344,10 @@ const styles = StyleSheet.create({
         backgroundColor: light.box,
         borderRadius: 10,
         paddingBottom: '1%',
+    },
+    icon:{
+        top:'3%',
+        paddingTop: 20
     },
     boxM: {
         flex: 1,
@@ -474,6 +478,7 @@ const styles = StyleSheet.create({
     },
     previewText:{
         fontSize: 18,
+        fontWeight: '500',
         paddingBottom: 10,
         paddingLeft:'10%',
         textAlign: 'left',
@@ -481,10 +486,11 @@ const styles = StyleSheet.create({
         borderColor: light.background,
         marginLeft:'10%',
         marginRight:'10%',
-        marginTop:'1%',
+        marginTop:'4%',
     },
     previewTextM:{
         fontSize: 18,
+        fontWeight: '500',
         paddingBottom: 10,
         paddingLeft:'10%',
         textAlign: 'left',
@@ -492,11 +498,12 @@ const styles = StyleSheet.create({
         borderColor: light.box,
         marginLeft:'10%',
         marginRight:'10%',
-        marginTop:'1%',
+        marginTop:'4%',
         color:light.box,
     },
     previewTextP:{
-        fontSize: 18,
+        fontSize: 19,
+        fontWeight: '500',
         paddingBottom: 10,
         paddingLeft:'10%',
         textAlign: 'left',
@@ -504,7 +511,7 @@ const styles = StyleSheet.create({
         borderColor: light.background,
         marginLeft:'10%',
         marginRight:'10%',
-        marginTop:'1%',
+        marginTop:'4%',
         color:'white',
     },
     priceHeader:{

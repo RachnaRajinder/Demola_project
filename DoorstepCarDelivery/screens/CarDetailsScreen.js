@@ -31,7 +31,7 @@ function CarDetailsScreen() {
           <Text style={styles.bodyType}> {bodyType} </Text>
           <Text style={styles.BodyHeader}> Body Type </Text>
           <Text style={styles.smallHeader}> Features </Text>
-          <View style={styles.infoBox}>
+          <View style={[styles.infoBox, {justifyContent: 'center'}]}>
             <View style={styles.box}>
               <Ionicons
                 name={"speedometer-outline"}

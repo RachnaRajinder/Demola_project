@@ -15,14 +15,16 @@ const { width, height } = Dimensions.get('window')
 function HomeScreen() {
     const { width, height } = Dimensions.get('window')
     const name1 = 'Hannu'
+    const name2 = 'Julie'
     const lastName = 'Luhtasela'
+    const lastName2 = 'Henricks'
     const Age = '45'
     const Address = 'Mainroad 123 A'
-    const Email = 'spurdo.sparde@gmail.com'
+    const Email = 'email@gmail.com'
     const Password = 'password'
-    const name2 = 'Julie'
     const navigation = useNavigation();
     const [profile, setProfile] = useState(name1);
+    const [profileLn, setProfileLn] = useState(lastName);
     const [modalVisible, setModalVisible] = useState(false);
 
     const navigateToCarDetails = () => {
@@ -48,12 +50,11 @@ function HomeScreen() {
     }
     const navigateToProfileSettings = () => {
         navigation.navigate('Profile Settings', {
-            name1, name2, lastName, Age, Address, Email, Password
+            profile, profileLn, Age, Address, Email, Password
         })
     }
     const navigateToMembership = () => {
-        // navigation.navigate('Membership')
-        Alert.alert('Navigating', 'to membership screen')
+        navigation.navigate('Subscriptions')
     }
     const addNewProfile = () => {
         // navigation.navigate('open modal')
@@ -64,8 +65,9 @@ function HomeScreen() {
         setModalVisible(!modalVisible)
     }
 
-    const handleProfileChange = (name) => {
+    const handleProfileChange = (name, lastname) => {
         setProfile(name);
+        setProfileLn(lastname);
         hideModal();
     };
 
@@ -122,10 +124,10 @@ function HomeScreen() {
                                         <Text style={styles.headerModal}>Current: {profile}</Text>
 
                                         <View style={styles.profileChoices}>
-                                            <TouchableOpacity onPress={() => handleProfileChange(name1)}>
+                                            <TouchableOpacity onPress={() => handleProfileChange(name1,lastName)}>
                                                 <Text style={styles.choiceText}>{name1}</Text>
                                             </TouchableOpacity>
-                                            <TouchableOpacity onPress={() => handleProfileChange(name2)}>
+                                            <TouchableOpacity onPress={() => handleProfileChange(name2,lastName2)}>
                                                 <Text style={styles.choiceText}>{name2}</Text>
                                             </TouchableOpacity>
                                         </View>

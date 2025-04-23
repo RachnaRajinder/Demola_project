@@ -17,9 +17,9 @@ const ProfileSettings = () =>{
     const [Maps, setMaps] = useState(false)
     const [Messages, setMessages] = useState(false)
     const [Calls, setCalls] = useState(false)
-    const { name1, name2, lastName, Age, Address, Email, Password } = route.params || { id: 1 }
-    const [name, onChangeName] = React.useState(name1);
-    const [Lname, onChangeLname] = React.useState(lastName);
+    const { profile, profileLn, Age, Address, Email, Password } = route.params || { id: 1 }
+    const [name, onChangeName] = React.useState(profile);
+    const [Lname, onChangeLname] = React.useState(profileLn);
     const [age, onChangeAge] = React.useState(Age);
     const [address, onChangeAddress] = React.useState(Address);
     const [email, onChangeEmail] = React.useState(Email);
@@ -56,7 +56,7 @@ const ProfileSettings = () =>{
         <SafeAreaView style={styles.container}>
             
                 <View style={styles.box}>
-                    <Text style={styles.heading}> {name1} {lastName} </Text>
+                    <Text style={styles.heading}> {profile} {profileLn} </Text>
                     <Text style={styles.infoHeading}> First name</Text>
                     <TextInput 
                     style={styles.TextInput}

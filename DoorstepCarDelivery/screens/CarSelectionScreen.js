@@ -209,10 +209,12 @@ const styles = StyleSheet.create({
   imageStats: {
     flex: 3,
     height:'100%',
-    width: '200',
+    width: '100%',
     alignItems: 'center',
     borderLeftWidth: 2,
-    borderLeftColor: light.accent
+    marginLeft: '3%',
+    paddingRight: '1%',
+    borderLeftColor: light.accent,
     
   },
   carName: {

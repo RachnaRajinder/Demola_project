@@ -75,7 +75,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact 📧
 
-Project Link: [https://github.com/yourusername/Garage-as-a-Service](https://github.com/yourusername/Garage-as-a-Service)
+Project Link: [(https://github.com/RachnaRajinder/Demola_projec)]
 
 ## Acknowledgments 🙏
 - Expo Team for the amazing framework

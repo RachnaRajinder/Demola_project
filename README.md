@@ -31,7 +31,7 @@ A modern mobile application built with React Native that revolutionizes the way 
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/yourusername/Garage-as-a-Service.git
+   git clone https://github.com/RachnaRajinder/Demola_project
    cd Garage-as-a-Service
    ```
 
